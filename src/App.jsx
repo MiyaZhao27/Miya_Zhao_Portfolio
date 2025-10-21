@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Sidebar from "./components/Sidebar.jsx/index.js";
-import Art from "./pages/Art.jsx/index.js";
-import BiologyResearch from "./pages/BiologyResearch.jsx/index.js";
+import Sidebar from "./components/Sidebar.jsx";
+import Art from "./pages/Art.jsx";
+import BiologyResearch from "./pages/BiologyResearch.jsx";
 import DataAnalytics from "./pages/DataAnalytics.jsx";
 
 export default function App() {
