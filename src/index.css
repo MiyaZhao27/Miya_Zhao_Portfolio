@@ -1,0 +1,22 @@
+/* src/index.css */
+:root { color-scheme: dark; }
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #1e1e1e; /* solid background (no gradients/stripes) */
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove any leftover centering/max-width styles the Vite template added to #root */
+#root {
+  display: block;
+  max-width: none;
+  padding: 0;
+  text-align: left;
+}
