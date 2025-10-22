@@ -3,6 +3,7 @@ import Sidebar from "./components/Sidebar.jsx";
 import Art from "./pages/Art.jsx";
 import BiologyResearch from "./pages/BiologyResearch.jsx";
 import DataAnalytics from "./pages/DataAnalytics.jsx";
+import EventPlanning from "./pages/EventPlanning.jsx";
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/data-analytics" element={<DataAnalytics />} />
           <Route path="/biology-research" element={<BiologyResearch />} />
           <Route path="/art" element={<Art />} />
+          <Route path="/event-planning" element={<EventPlanning />} />
         </Routes>
       </main>
     </div>
