@@ -37,10 +37,8 @@ export default function Header() {
         zIndex: 1000,
       }}
     >
-      {/* Logo or site title */}
       <h2 style={{ color: "#fff", margin: 0 }}>Miya’s Portfolio</h2>
 
-      {/* Navigation Links */}
       <nav style={{ display: "flex", gap: "1rem" }}>
         {link("/", "Home")}
         {link("/data-analytics", "Data Analytics")}
@@ -49,7 +47,7 @@ export default function Header() {
         {link("/art", "Art")}
       </nav>
 
-      {/* CTA button */}
+
       <button
         style={{
           background: "#e63946",
