@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Sidebar from "./components/Sidebar.jsx";
+import Header from "./components/Header.jsx";
 import Art from "./pages/Art.jsx";
 import BiologyResearch from "./pages/BiologyResearch.jsx";
 import DataAnalytics from "./pages/DataAnalytics.jsx";
@@ -7,20 +7,18 @@ import EventPlanning from "./pages/EventPlanning.jsx";
 
 export default function App() {
   return (
-    <div style={{ display: "flex" }}>
-      <Sidebar />
+    <div>
+      <Header />
       <main
         style={{
-          marginLeft: 240,
+          paddingTop: "80px",
           padding: "2rem",
           minHeight: "100vh",
-          width: "100%",
           background: "#222",
           color: "#fff",
         }}
       >
         <Routes>
-          {/* Home Page */}
           <Route
             path="/"
             element={
@@ -40,8 +38,6 @@ export default function App() {
               </>
             }
           />
-
-          {/* Other Pages */}
           <Route path="/data-analytics" element={<DataAnalytics />} />
           <Route path="/biology-research" element={<BiologyResearch />} />
           <Route path="/event-planning" element={<EventPlanning />} />
