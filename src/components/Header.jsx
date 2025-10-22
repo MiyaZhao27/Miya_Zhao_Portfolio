@@ -1,4 +1,4 @@
-// src/components/Header.jsx
+import { NavLink } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -7,8 +7,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { NavLink } from "react-router-dom";
+} from "./ui/navigation-menu";
 
 export default function Header() {
   return (
