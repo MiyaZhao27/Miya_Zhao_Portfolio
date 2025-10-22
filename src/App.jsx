@@ -44,8 +44,8 @@ export default function App() {
           {/* Other Pages */}
           <Route path="/data-analytics" element={<DataAnalytics />} />
           <Route path="/biology-research" element={<BiologyResearch />} />
-          <Route path="/art" element={<Art />} />
           <Route path="/event-planning" element={<EventPlanning />} />
+          <Route path="/art" element={<Art />} />
         </Routes>
       </main>
     </div>
