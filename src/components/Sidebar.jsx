@@ -36,6 +36,7 @@ export default function Sidebar() {
       {link("/data-analytics", "Data Analytics")}
       {link("/biology-research", "Biology Research")}
       {link("/art", "Art")}
+      {link("/event-planning", "Event Planning")}
     </nav>
   );
 }
