@@ -1,33 +1,68 @@
-// src/components/Header.jsx
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
-  const link =
-    "px-3 py-2 rounded-md text-sm font-medium text-neutral-200 hover:bg-neutral-800";
-  const active = "bg-neutral-800 text-white";
+  const { pathname } = useLocation();
+
+  const link = (to, label) => (
+    <Link
+      to={to}
+      style={{
+        padding: "0.5rem 1rem",
+        borderRadius: "0.4rem",
+        textDecoration: "none",
+        color: pathname === to ? "#fff" : "#ccc",
+        background: pathname === to ? "#3c3c3c" : "transparent",
+        transition: "background 0.2s",
+      }}
+    >
+      {label}
+    </Link>
+  );
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-neutral-800 bg-neutral-900/95 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <NavLink to="/" className="text-xl font-semibold text-white">
-          Miya’s Portfolio
-        </NavLink>
+    <header
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: "64px",
+        background: "#1e1e1e",
+        borderBottom: "1px solid #2c2c2c",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0 2rem",
+        boxSizing: "border-box",
+        zIndex: 1000,
+      }}
+    >
+      {/* Logo or site title */}
+      <h2 style={{ color: "#fff", margin: 0 }}>Miya’s Portfolio</h2>
 
-        <nav className="hidden md:flex items-center gap-2">
-          <NavLink to="/" className={({isActive}) => `${link} ${isActive ? active : ""}`}>Home</NavLink>
-          <NavLink to="/data-analytics" className={({isActive}) => `${link} ${isActive ? active : ""}`}>Data Analytics</NavLink>
-          <NavLink to="/biology-research" className={({isActive}) => `${link} ${isActive ? active : ""}`}>Biology Research</NavLink>
-          <NavLink to="/event-planning" className={({isActive}) => `${link} ${isActive ? active : ""}`}>Event Planning</NavLink>
-          <NavLink to="/art" className={({isActive}) => `${link} ${isActive ? active : ""}`}>Art</NavLink>
-        </nav>
+      {/* Navigation Links */}
+      <nav style={{ display: "flex", gap: "1rem" }}>
+        {link("/", "Home")}
+        {link("/data-analytics", "Data Analytics")}
+        {link("/biology-research", "Biology Research")}
+        {link("/event-planning", "Event Planning")}
+        {link("/art", "Art")}
+      </nav>
 
-        <NavLink
-          to="/contact"
-          className="rounded-lg bg-rose-600 px-4 py-2 font-semibold text-white hover:bg-rose-500"
-        >
-          Let’s Talk
-        </NavLink>
-      </div>
+      {/* CTA button */}
+      <button
+        style={{
+          background: "#e63946",
+          color: "#fff",
+          border: "none",
+          borderRadius: "0.5rem",
+          padding: "0.5rem 1rem",
+          cursor: "pointer",
+          fontWeight: 600,
+        }}
+      >
+        Let’s Talk
+      </button>
     </header>
   );
 }
