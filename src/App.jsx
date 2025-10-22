@@ -19,15 +19,28 @@ export default function App() {
         }}
       >
         <Routes>
+          {/* Home Page */}
           <Route
             path="/"
             element={
               <>
                 <h1>Welcome to Miya’s Portfolio</h1>
-                <p>Designed and built with ❤️ using React + Vite</p>
+                <p
+                  style={{
+                    maxWidth: "600px",
+                    lineHeight: "1.6",
+                    fontSize: "1.05rem",
+                  }}
+                >
+                  I’m Miya Zhao! I'm interested in exploring the intersections of
+                  data analytics, biology research, event planning, and art. This
+                  portfolio showcases my favorite projects and creative work.
+                </p>
               </>
             }
           />
+
+          {/* Other Pages */}
           <Route path="/data-analytics" element={<DataAnalytics />} />
           <Route path="/biology-research" element={<BiologyResearch />} />
           <Route path="/art" element={<Art />} />
