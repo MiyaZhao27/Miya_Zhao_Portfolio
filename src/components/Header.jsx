@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Contact from "./Contact.jsx";
 
 export default function Header() {
   const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
 
   const link = (to, label) => (
     <Link
@@ -20,47 +23,65 @@ export default function Header() {
   );
 
   return (
-    <header
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: "64px",
-        background: "#1e1e1e",
-        borderBottom: "1px solid #2c2c2c",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "0 2rem",
-        boxSizing: "border-box",
-        zIndex: 1000,
-      }}
-    >
-      <h2 style={{ color: "#fff", margin: 0 }}>Miya’s Portfolio</h2>
-
-      <nav style={{ display: "flex", gap: "1rem" }}>
-        {link("/", "Home")}
-        {link("/data-analytics", "Data Analytics")}
-        {link("/biology-research", "Biology Research")}
-        {link("/event-planning", "Event Planning")}
-        {link("/art", "Art")}
-      </nav>
-
-
-      <button
+    <>
+      <header
         style={{
-          background: "#e63946",
-          color: "#fff",
-          border: "none",
-          borderRadius: "0.5rem",
-          padding: "0.5rem 1rem",
-          cursor: "pointer",
-          fontWeight: 600,
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "64px",
+          background: "#1e1e1e",
+          borderBottom: "1px solid #2c2c2c",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 2rem",
+          boxSizing: "border-box",
+          zIndex: 1000,
         }}
       >
-        Let’s Talk
-      </button>
-    </header>
+        <h2 style={{ color: "#fff", margin: 0 }}>Miya Zhao</h2>
+
+        <nav style={{ display: "flex", gap: "1rem" }}>
+          {link("/", "Home")}
+          {link("/data-analytics", "Data Analytics")}
+          {link("/biology-research", "Research")}
+          {link("/event-planning", "Events and Culture")}
+          {link("/art", "Art Gallery")}
+        </nav>
+
+        <button
+          onClick={() => setOpen(true)}
+          style={{
+            background: "#e63946",
+            color: "#fff",
+            border: "none",
+            borderRadius: "0.5rem",
+            padding: "0.5rem 1rem",
+            cursor: "pointer",
+            fontWeight: 600,
+          }}
+        >
+          Let’s Talk
+        </button>
+      </header>
+
+      <Contact
+        open={open}
+        onClose={() => setOpen(false)}
+        contact={{
+          name: "Miya Zhao",
+          email: "miya.zhao@yale.edu", 
+          phone: "(803) 448-5626",            
+          location: "New Haven, CT",        
+          avatarSrc: `${import.meta.env.BASE_URL}headshot.png`,
+          links: [
+            { label: "LinkedIn", href: "https://www.linkedin.com/in/miya-zhao-99869a211" },
+            { label: "Resume", href: `${import.meta.env.BASE_URL}Miya_Zhao_Resume.pdf` },
+          ],
+        }}
+      />
+    </>
   );
 }

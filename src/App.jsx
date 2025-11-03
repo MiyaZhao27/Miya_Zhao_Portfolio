@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import "./App.css";
 import Header from "./components/Header.jsx";
 import Art from "./pages/Art.jsx";
 import BiologyResearch from "./pages/BiologyResearch.jsx";
@@ -20,24 +21,24 @@ export default function App() {
       >
         <Routes>
           <Route
-            path="/"
-            element={
-              <>
-                <h1>Welcome to Miya’s Portfolio</h1>
-                <p
-                  style={{
-                    maxWidth: "600px",
-                    lineHeight: "1.6",
-                    fontSize: "1.05rem",
-                  }}
-                >
-                  I’m Miya Zhao! I'm interested in exploring the intersections of
-                  data analytics, biology research, event planning, and art. This
-                  portfolio showcases my favorite projects and creative work.
-                </p>
-              </>
-            }
-          />
+  path="/"
+  element={
+    <div className="hero-container">
+      <img
+      src={`${import.meta.env.BASE_URL}headshot.png`}
+      alt="Miya Zhao headshot"
+      className="hero-image"
+    />
+      <div className="hero-text">
+        <h1 className="ep-header">Welcome to Miya’s Portfolio</h1>
+        <p className="ep-sub">
+          I’m Miya Zhao! I'm interested in exploring the world of Product Management as the intersection of creativity
+          and technical implementation. This portfolio showcases my favorite projects and creative work.
+        </p>
+      </div>
+    </div>
+  }
+/>
           <Route path="/data-analytics" element={<DataAnalytics />} />
           <Route path="/biology-research" element={<BiologyResearch />} />
           <Route path="/event-planning" element={<EventPlanning />} />
