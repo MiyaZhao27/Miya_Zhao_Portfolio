@@ -1,7 +1,20 @@
 export default function Art() {
-  const artworks = Array.from({ length: 12 }, (_, i) => ({
-    title: `Piece ${i + 1}`,
-    height: [160, 180, 220, 260, 300][Math.floor(Math.random() * 5)],
+  // Explicit list for mixed file extensions and skipped numbers
+  const artworks = [
+    "mzgallery1.png",
+    "mzgallery2.png",
+    "mzgallery3.png",
+    "mzgallery4.png",
+    "mzgallery5.png",
+    "mzgallery6.png",
+    "mzgallery7.png",
+    "mzgallery8.JPG",
+    "mzgallery9.JPG",
+    "mzgallery10.JPG",
+    "mzgallery12.png",
+  ].map((file, i) => ({
+    src: `${import.meta.env.BASE_URL}${file}`,
+    title: `Artwork ${i + 1}`,
   }));
 
   return (
@@ -19,15 +32,28 @@ export default function Art() {
         .masonry-item {
           break-inside: avoid;
           margin: 0 0 1.5rem;
+          overflow: hidden;
           border-radius: 1rem;
-          box-shadow: 0 4px 10px rgba(0,0,0,.3);
-          background: #1e90ff;
-          color: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 700;
-          font-size: 1.1rem;
+          box-shadow: 0 4px 10px rgba(0,0,0,.4);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          background: #111;
+        }
+
+        .masonry-item img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 1rem;
+          transition: transform 0.3s ease;
+        }
+
+        .masonry-item:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0,0,0,.6);
+        }
+
+        .masonry-item:hover img {
+          transform: scale(1.05);
         }
 
         .art-header {
@@ -39,20 +65,17 @@ export default function Art() {
           text-align: center;
           max-width: 600px;
           margin: 0 auto 2rem;
+          color: #ddd;
         }
       `}</style>
 
       <h1 className="art-header">Welcome to My Art Gallery!</h1>
-      <p className="art-sub">take a peak hehe </p>
+      <p className="art-sub">A collection of my digital pieces and creative sketches.</p>
 
       <div className="masonry">
         {artworks.map((art, i) => (
-          <div
-            key={i}
-            className="masonry-item"
-            style={{ height: art.height }}
-          >
-            {art.title}
+          <div key={i} className="masonry-item">
+            <img src={art.src} alt={art.title} loading="lazy" />
           </div>
         ))}
       </div>
