@@ -63,7 +63,7 @@ export default function Header() {
             fontWeight: 600,
           }}
         >
-          Let’s Talk
+          Contact Me
         </button>
       </header>
 
