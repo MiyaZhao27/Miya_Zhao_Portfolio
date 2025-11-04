@@ -1,5 +1,7 @@
-/* src/index.css */
-:root { color-scheme: dark; }
+:root {
+  color-scheme: dark;
+  font-size: 16px; 
+}
 
 html, body, #root {
   height: 100%;
@@ -7,16 +9,43 @@ html, body, #root {
 
 body {
   margin: 0;
-  background: #1e1e1e; /* solid background (no gradients/stripes) */
+  background: #1e1e1e;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
 }
 
-/* Remove any leftover centering/max-width styles the Vite template added to #root */
-#root {
-  display: block;
-  max-width: none;
-  padding: 0;
-  text-align: left;
+h1, h2, h3 {
+  margin-top: 0.6rem;  
+  margin-bottom: 0.6rem; 
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+p, a, li {
+  font-size: 1.1rem;
+}
+
+.ep-header {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem;
+}
+
+.ep-sub {
+  max-width: none;     
+  text-align: left;     
+  margin: 0 auto 1rem; 
+  width: 100%;
 }

@@ -58,7 +58,7 @@ export default function Art() {
 
         .art-header {
           text-align: center;
-          margin-top: 100px;
+          margin-top: 50px;
           margin-bottom: 1.5rem;
         }
         .art-sub {

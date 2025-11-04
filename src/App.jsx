@@ -32,7 +32,7 @@ export default function App() {
       <div className="hero-text">
         <h1 className="ep-header">Welcome to Miya’s Portfolio</h1>
         <p className="ep-sub">
-          I’m Miya Zhao! I'm interested in exploring the world of Product Management as the intersection of creativity
+          I’m Miya Zhao! I'm interested in exploring the world of Product Management as the intersection of creative thought
           and technical implementation. This portfolio showcases my favorite projects and creative work.
         </p>
       </div>

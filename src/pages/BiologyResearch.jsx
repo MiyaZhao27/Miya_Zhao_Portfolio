@@ -27,6 +27,9 @@ export default function BiologyResearch() {
     color: "#ddd",
     lineHeight: "1.6",
     fontSize: "1.05rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   };
 
   const pdfContainer = {
@@ -51,11 +54,52 @@ export default function BiologyResearch() {
         }}
       >
         A collection of biology research projects exploring synthetic biology,
-        environmental microbiology, and neurobiology. Each paper highlights a
-        unique investigative approach and experimental design.
+        environmental microbiology, and neurobiology. 
       </p>
 
-      {/* --- Paper 1 (PDF left, description right) --- */}
+      {/* --- iGEM Wiki Embed --- */}
+      <div style={{ width: "100%", maxWidth: "1300px", margin: "0 auto 4rem" }}>
+        <h2 style={{ textAlign: "left", marginBottom: "0.5rem" }}>
+          2025 iGEM Yale Wiki
+        </h2>
+        <p className="ep-sub" style={{ textAlign: "left", marginBottom: "1rem" }}>
+          Largely in college, I explored creating a more systematic approach to the functionalization of enzymatic proteins through non-standard amino acid integration.
+          This project was executed by a team of 10 throughout two years and was awarded a gold medal (Yale's first in 15 years!) at the 2025 iGEM Jamboree in Paris. 
+          Explore the Yale iGEM 2025 Wiki for more details on project ideation, implementations, and human practices.
+        </p>
+        <iframe
+          src="https://2025.igem.wiki/yale/"
+          title="2025 iGEM Yale Team Wiki"
+          style={{
+            width: "100%",
+            height: "800px",
+            border: "none",
+            borderRadius: "12px",
+            background: "#111",
+            boxShadow: "0 0 20px rgba(0,0,0,0.5)",
+          }}
+        />
+        <div style={{ textAlign: "center", marginTop: ".75rem" }}>
+          <a
+            href="https://2025.igem.wiki/yale/"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display: "inline-block",
+              padding: ".6rem .9rem",
+              borderRadius: "999px",
+              border: "1px solid #444",
+              background: "#222",
+              color: "#fff",
+              textDecoration: "none",
+            }}
+          >
+            Open full wiki ↗
+          </a>
+        </div>
+      </div>
+
+      {/* --- Paper 1 (PDF left, text right) --- */}
       <div style={sectionStyle}>
         <div style={pdfContainer}>
           <object data={paper1} type="application/pdf" style={frameStyle}>
@@ -69,7 +113,7 @@ export default function BiologyResearch() {
           </object>
         </div>
 
-        <div style={textStyle}>
+        <div style={{ ...textStyle, textAlign: "right", alignItems: "flex-end" }}>
           <h2>
             Identification of Non-standard Amino Acid Incorporation Sites for
             Half-life Extension of Chemotherapeutic L-asparaginase
@@ -84,13 +128,8 @@ export default function BiologyResearch() {
         </div>
       </div>
 
-      {/* --- Paper 2 (PDF right, description left) --- */}
-      <div
-        style={{
-          ...sectionStyle,
-          flexDirection: "row-reverse",
-        }}
-      >
+      {/* --- Paper 2 (PDF right, text left) --- */}
+      <div style={{ ...sectionStyle, flexDirection: "row-reverse" }}>
         <div style={pdfContainer}>
           <object data={paper2} type="application/pdf" style={frameStyle}>
             <p>
@@ -103,7 +142,7 @@ export default function BiologyResearch() {
           </object>
         </div>
 
-        <div style={textStyle}>
+        <div style={{ ...textStyle, textAlign: "left", alignItems: "flex-start" }}>
           <h2>
             Isolation and Identification of Plastic-Degrading and Oil-Degrading
             Bacteria in a Soil Sample
@@ -111,12 +150,13 @@ export default function BiologyResearch() {
           <p>
             This environmental microbiology study involved isolating bacterial
             strains capable of degrading polyethylene and hydrocarbon residues
-            from soil samples. 
+            from soil samples. The goal was to identify microorganisms with
+            potential applications in bioremediation and waste management.
           </p>
         </div>
       </div>
 
-      {/* --- Paper 3 (PDF left, description right again) --- */}
+      {/* --- Paper 3 (PDF left, text right) --- */}
       <div style={sectionStyle}>
         <div style={pdfContainer}>
           <object data={paper3} type="application/pdf" style={frameStyle}>
@@ -130,12 +170,13 @@ export default function BiologyResearch() {
           </object>
         </div>
 
-        <div style={textStyle}>
+        <div style={{ ...textStyle, textAlign: "right", alignItems: "flex-end" }}>
           <h2>PRG2’s Effect on LPA Reception in Neurons</h2>
           <p>
             This neuroscience abstract explores the modulatory role of PRG2 in
             regulating lysophosphatidic acid (LPA) receptor activity within
-            neuronal cells. 
+            neuronal cells. The findings suggest PRG2 influences neuronal
+            signaling pathways linked to cell migration and neurodevelopment.
           </p>
         </div>
       </div>
