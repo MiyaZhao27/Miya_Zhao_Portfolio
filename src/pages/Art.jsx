@@ -14,11 +14,104 @@ export default function Art() {
     "mzgallery12.png",
   ].map((file, i) => ({
     src: `${import.meta.env.BASE_URL}${file}`,
-    title: `Artwork ${i + 1}`,
   }));
+
+  const projects = [];
+
+  const scrollToSection = (title) => {
+    const id = title.toLowerCase().replace(/\s+/g, "-");
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const sidebarStyle = {
+    position: "fixed",
+    top: "100px",
+    left: "0",
+    width: "240px",
+    maxHeight: "calc(100vh - 120px)",
+    overflowY: "auto",
+    padding: "1.5rem",
+    background: "#1a1a1a",
+    borderRadius: "0 12px 12px 0",
+    border: "none",
+    borderRight: "1px solid #333",
+    zIndex: 10,
+  };
+
+  const outlineItemStyle = {
+    display: "block",
+    padding: "0.75rem 0.5rem",
+    color: "#ddd",
+    textDecoration: "none",
+    fontSize: "0.9rem",
+    lineHeight: "1.4",
+    cursor: "pointer",
+    borderRadius: "6px",
+    transition: "all 0.2s ease",
+    marginBottom: "0.25rem",
+  };
+
+  const containerStyle = {
+    background: "#222",
+    color: "#fff",
+    minHeight: "100vh",
+    padding: "2rem 50px 2rem 100px",
+    width: "100%",
+    boxSizing: "border-box",
+    overflowX: "hidden",
+  };
+
+  const contentStyle = {
+    width: "100%",
+    maxWidth: "none",
+  };
 
   return (
     <>
+      <style>{`
+        @media (max-width: 900px) {
+          .project-outline-container {
+            flex-direction: column !important;
+          }
+          .project-outline-sidebar {
+            position: relative !important;
+            width: 100% !important;
+            margin-right: 0 !important;
+            margin-bottom: 2rem !important;
+            max-height: none !important;
+          }
+        }
+      `}</style>
+    <div style={containerStyle} className="project-outline-container">
+      <aside style={sidebarStyle} className="project-outline-sidebar">
+        <h3 style={{ marginTop: 0, marginBottom: "1rem", fontSize: "1.1rem", color: "#fff" }}>
+          Projects
+        </h3>
+        {projects.map((project, idx) => (
+          <a
+            key={idx}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection(project);
+            }}
+            style={outlineItemStyle}
+            onMouseEnter={(e) => {
+              e.target.style.background = "#333";
+              e.target.style.color = "#fff";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = "transparent";
+              e.target.style.color = "#ddd";
+            }}
+          >
+            {project}
+          </a>
+        ))}
+      </aside>
+      <div style={contentStyle} className="project-content">
       <style>{`
         .masonry {
           column-count: 4;
@@ -67,6 +160,26 @@ export default function Art() {
           margin: 0 auto 2rem;
           color: #ddd;
         }
+        * {
+          box-sizing: border-box;
+        }
+        body {
+          overflow-x: hidden;
+        }
+        @media (max-width: 1200px) {
+          .project-outline-sidebar {
+            position: relative !important;
+            left: 0 !important;
+            width: 100% !important;
+            margin-bottom: 2rem !important;
+            max-height: none !important;
+            border-radius: 12px !important;
+            border-right: none !important;
+          }
+          .project-outline-container {
+            padding-left: 2rem !important;
+          }
+        }
       `}</style>
 
       <h1 className="art-header">Welcome to My Art Gallery!</h1>
@@ -75,10 +188,12 @@ export default function Art() {
       <div className="masonry">
         {artworks.map((art, i) => (
           <div key={i} className="masonry-item">
-            <img src={art.src} alt={art.title} loading="lazy" />
+            <img src={art.src} alt={`Artwork ${i + 1}`} loading="lazy" />
           </div>
         ))}
       </div>
+      </div>
+    </div>
     </>
   );
 }
