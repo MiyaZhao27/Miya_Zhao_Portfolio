@@ -49,7 +49,7 @@ export default function EventHighlight({ title, date, club, images, description 
       {/* Images */}
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
         gap: "1rem",
         marginBottom: "1.5rem",
       }}>
@@ -61,7 +61,8 @@ export default function EventHighlight({ title, date, club, images, description 
               alt={`${title} ${i + 1}`}
               style={{
                 width: "100%",
-                height: "300px",
+                height: "auto",
+                aspectRatio: "16/9",
                 objectFit: "cover",
                 borderRadius: "8px",
                 border: "1px solid #404040",

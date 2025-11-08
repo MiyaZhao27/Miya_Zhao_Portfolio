@@ -62,7 +62,7 @@ export default function DataAnalytics() {
     background: "#222",
     color: "#fff",
     minHeight: "100vh",
-    padding: "clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
+    padding: "clamp(2rem, 6vw, 4rem) clamp(1rem, 8vw, 100px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
     width: "100%",
     boxSizing: "border-box",
     overflowX: "hidden",

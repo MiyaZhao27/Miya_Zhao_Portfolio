@@ -79,6 +79,40 @@ export default function DogOutlineGuide({ sections }) {
           transform: scale(1.1);
         }
         
+        @media (max-width: 768px) {
+          .dog-guide-container {
+            bottom: 15px;
+            left: 15px;
+          }
+          
+          .dog-icon {
+            width: 80px;
+            height: 80px;
+          }
+          
+          .speech-bubble {
+            font-size: 0.75rem;
+            padding: 6px 12px;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .dog-guide-container {
+            bottom: 10px;
+            left: 10px;
+          }
+          
+          .dog-icon {
+            width: 60px;
+            height: 60px;
+          }
+          
+          .speech-bubble {
+            font-size: 0.7rem;
+            padding: 5px 10px;
+          }
+        }
+        
         .dog-outline-sidebar {
           position: absolute;
           bottom: 100%;

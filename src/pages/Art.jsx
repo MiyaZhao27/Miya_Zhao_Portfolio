@@ -25,7 +25,7 @@ export default function Art() {
     background: "#222",
     color: "#fff",
     minHeight: "100vh",
-    padding: "clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
+    padding: "clamp(1rem, 4vw, 2rem) clamp(0.5rem, 1vw, 20px) clamp(1rem, 4vw, 2rem) clamp(0.5rem, 1vw, 20px)",
     width: "100%",
     boxSizing: "border-box",
     overflowX: "hidden",
@@ -59,7 +59,7 @@ export default function Art() {
         .masonry {
           column-count: 3;
           column-gap: 1.5rem;
-          padding: 140px 1rem 2rem; 
+          padding: 70px 1rem 2rem; 
         }
         @media (max-width: 1200px) { .masonry { column-count: 2; } }
         @media (max-width: 900px)  { .masonry { column-count: 2; } }
@@ -135,7 +135,7 @@ export default function Art() {
             font-size: clamp(1.5rem, 6vw, 2rem) !important;
           }
           .masonry {
-            padding-top: 80px !important;
+            padding-top: 40px !important;
           }
         }
         @keyframes typing {

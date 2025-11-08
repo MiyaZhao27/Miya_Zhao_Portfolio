@@ -4,6 +4,7 @@ import Header from "./components/Header.jsx";
 import Art from "./pages/Art.jsx";
 import BiologyResearch from "./pages/BiologyResearch.jsx";
 import DataAnalytics from "./pages/DataAnalytics.jsx";
+import EventDetail from "./pages/EventDetail.jsx";
 import EventPlanning from "./pages/EventPlanning.jsx";
 
 export default function App() {
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="/data-analytics" element={<DataAnalytics />} />
           <Route path="/biology-research" element={<BiologyResearch />} />
           <Route path="/event-planning" element={<EventPlanning />} />
+          <Route path="/event/:eventId" element={<EventDetail />} />
           <Route path="/art" element={<Art />} />
         </Routes>
       </main>
