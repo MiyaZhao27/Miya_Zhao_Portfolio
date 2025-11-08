@@ -1,36 +1,27 @@
+import DogOutlineGuide from "../components/DogOutlineGuide.jsx";
 import ShinyEmbed from "../components/ShinyEmbed.jsx";
 
 export default function DataAnalytics() {
   const paper1 = `${import.meta.env.BASE_URL}Analysis of World Happiness Trends.pdf`;
   const paper2 = `${import.meta.env.BASE_URL}COVID-19 Steady State Modeling.pdf`;
 
-  const projects = [
-    "Property Values (Interactions & Splines, Plotly)",
-    "L-Asparaginase Features Explorer",
-    "EV Charging Station Visualization",
-    "Analysis of World Happiness Trends",
-    "COVID-19 Steady State Modeling",
+  const outlineSections = [
+    {
+      title: "Data Visualization Tools",
+      items: [
+        "Property Values (Interactions & Splines, Plotly)",
+        "L-Asparaginase Features Explorer",
+        "EV Charging Station Visualization",
+      ]
+    },
+    {
+      title: "Data Analytics Papers",
+      items: [
+        "Analysis of World Happiness Trends",
+        "COVID-19 Steady State Modeling",
+      ]
+    }
   ];
-
-  const scrollToSection = (title) => {
-    let id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    // Match specific IDs
-    if (title.includes("Property Values")) {
-      id = "property-values-interactions-splines-plotly";
-    } else if (title.includes("L-Asparaginase")) {
-      id = "l-asparaginase-features-explorer";
-    } else if (title.includes("EV Charging")) {
-      id = "ev-charging-station-visualization";
-    } else if (title.includes("World Happiness")) {
-      id = "analysis-of-world-happiness-trends";
-    } else if (title.includes("COVID-19")) {
-      id = "covid-19-steady-state-modeling";
-    }
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   const frameStyle = {
     border: "none",
@@ -65,34 +56,6 @@ export default function DataAnalytics() {
   const pdfContainer = {
     flex: "1 1 600px",
     maxWidth: "100%",
-  };
-
-  const sidebarStyle = {
-    position: "fixed",
-    top: "100px",
-    left: "0",
-    width: "clamp(200px, 15vw, 240px)",
-    maxHeight: "calc(100vh - 120px)",
-    overflowY: "auto",
-    padding: "clamp(1rem, 2vw, 1.5rem)",
-    background: "#1a1a1a",
-    borderRadius: "0 12px 12px 0",
-    border: "none",
-    borderRight: "1px solid #333",
-    zIndex: 10,
-  };
-
-  const outlineItemStyle = {
-    display: "block",
-    padding: "clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.4rem, 1.2vw, 0.5rem)",
-    color: "#ddd",
-    textDecoration: "none",
-    fontSize: "clamp(0.8rem, 2vw, 0.9rem)",
-    lineHeight: "1.4",
-    cursor: "pointer",
-    borderRadius: "6px",
-    transition: "all 0.2s ease",
-    marginBottom: "0.25rem",
   };
 
   const containerStyle = {
@@ -143,17 +106,8 @@ export default function DataAnalytics() {
         body {
           overflow-x: hidden;
         }
+        
         @media (max-width: 1024px) {
-          .project-outline-sidebar {
-            position: relative !important;
-            left: 0 !important;
-            width: 100% !important;
-            margin-bottom: 2rem !important;
-            max-height: none !important;
-            border-radius: 12px !important;
-            border-right: none !important;
-            top: 0 !important;
-          }
           .project-outline-container {
             padding-left: 1rem !important;
             padding-right: 1rem !important;
@@ -187,31 +141,7 @@ export default function DataAnalytics() {
         }
       `}</style>
     <div style={containerStyle} className="project-outline-container">
-      <aside style={sidebarStyle} className="project-outline-sidebar">
-        <h3 style={{ marginTop: 0, marginBottom: "1rem", fontSize: "1.1rem", color: "#fff" }}>
-          Projects
-        </h3>
-        {projects.map((project, idx) => (
-          <a
-            key={idx}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(project);
-            }}
-            style={outlineItemStyle}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#333";
-              e.target.style.color = "#fff";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "transparent";
-              e.target.style.color = "#ddd";
-            }}
-          >
-            {project}
-          </a>
-        ))}
-      </aside>
+      <DogOutlineGuide sections={outlineSections} />
       <div style={contentStyle} className="project-content">
       <h1 className="ep-header">Data Analytics Projects</h1>
       <p className="ep-sub" style={{ marginBottom: "3rem" }}>

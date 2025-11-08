@@ -1,32 +1,21 @@
+import DogOutlineGuide from "../components/DogOutlineGuide.jsx";
+
 export default function BiologyResearch() {
   const paper1 = `${import.meta.env.BASE_URL}Identification of Non-standard Amino Acid Incorporation Sites for Half-life Extension of chemotherapeutic L-asparaginase .docx.pdf`;
   const paper2 = `${import.meta.env.BASE_URL}Isolation and Identification of Plastic-Degrading and Oil-Degrading Bacteria In a Soil Sample.pdf`;
   const paper3 = `${import.meta.env.BASE_URL}LPApaper.pdf`;
 
-  const projects = [
-    "2025 iGEM Yale Wiki",
-    "Identification of Non-standard Amino Acid Incorporation Sites for Half-life Extension of Chemotherapeutic L-asparaginase",
-    "Isolation and Identification of Plastic-Degrading and Oil-Degrading Bacteria In a Soil Sample",
-    "LPA Paper",
+  const outlineSections = [
+    {
+      title: "Research Projects",
+      items: [
+        "2025 iGEM Yale Wiki",
+        "Identification of Non-standard Amino Acid Incorporation Sites for Half-life Extension of Chemotherapeutic L-asparaginase",
+        "Isolation and Identification of Plastic-Degrading and Oil-Degrading Bacteria In a Soil Sample",
+        "LPA Paper",
+      ]
+    }
   ];
-
-  const scrollToSection = (title) => {
-    let id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    // Match specific IDs
-    if (title === "2025 iGEM Yale Wiki") {
-      id = "2025-igem-yale-wiki";
-    } else if (title.includes("Identification of Non-standard")) {
-      id = "identification-of-non-standard-amino-acid-incorporation-sites-for-half-life-extension-of-chemotherapeutic-l-asparaginase";
-    } else if (title.includes("Isolation and Identification")) {
-      id = "isolation-and-identification-of-plastic-degrading-and-oil-degrading-bacteria-in-a-soil-sample";
-    } else if (title.includes("LPA")) {
-      id = "lpa-paper";
-    }
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   const frameStyle = {
     border: "none",
@@ -60,34 +49,6 @@ export default function BiologyResearch() {
   const pdfContainer = {
     flex: "1 1 600px",
     maxWidth: "100%",
-  };
-
-  const sidebarStyle = {
-    position: "fixed",
-    top: "100px",
-    left: "0",
-    width: "clamp(200px, 15vw, 240px)",
-    maxHeight: "calc(100vh - 120px)",
-    overflowY: "auto",
-    padding: "clamp(1rem, 2vw, 1.5rem)",
-    background: "#1a1a1a",
-    borderRadius: "0 12px 12px 0",
-    border: "none",
-    borderRight: "1px solid #333",
-    zIndex: 10,
-  };
-
-  const outlineItemStyle = {
-    display: "block",
-    padding: "clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.4rem, 1.2vw, 0.5rem)",
-    color: "#ddd",
-    textDecoration: "none",
-    fontSize: "clamp(0.8rem, 2vw, 0.9rem)",
-    lineHeight: "1.4",
-    cursor: "pointer",
-    borderRadius: "6px",
-    transition: "all 0.2s ease",
-    marginBottom: "0.25rem",
   };
 
   const containerStyle = {
@@ -158,31 +119,7 @@ export default function BiologyResearch() {
         }
       `}</style>
     <div style={containerStyle} className="project-outline-container">
-      <aside style={sidebarStyle} className="project-outline-sidebar">
-        <h3 style={{ marginTop: 0, marginBottom: "1rem", fontSize: "1.1rem", color: "#fff" }}>
-          Projects
-        </h3>
-        {projects.map((project, idx) => (
-          <a
-            key={idx}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(project);
-            }}
-            style={outlineItemStyle}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#333";
-              e.target.style.color = "#fff";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "transparent";
-              e.target.style.color = "#ddd";
-            }}
-          >
-            {project}
-          </a>
-        ))}
-      </aside>
+      <DogOutlineGuide sections={outlineSections} />
       <div style={contentStyle} className="project-content">
       <h1 className="ep-header">Biology Research</h1>
       <p

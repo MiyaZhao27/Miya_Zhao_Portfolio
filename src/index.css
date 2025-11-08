@@ -9,8 +9,8 @@ html, body, #root {
 
 body {
   margin: 0;
-  background: #1e1e1e;
-  color: #fff;
+  background: #1a1a1a;
+  color: #e8e8e8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;

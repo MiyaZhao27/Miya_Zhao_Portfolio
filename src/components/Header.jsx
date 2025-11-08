@@ -15,8 +15,8 @@ export default function Header() {
         padding: "0.5rem 1rem",
         borderRadius: "0.4rem",
         textDecoration: "none",
-        color: pathname === to ? "#fff" : "#ccc",
-        background: pathname === to ? "#3c3c3c" : "transparent",
+        color: pathname === to ? "#ffffff" : "#c4c4c4",
+        background: pathname === to ? "#d64545" : "transparent",
         transition: "background 0.2s",
         display: "block",
         whiteSpace: "nowrap",
@@ -35,8 +35,8 @@ export default function Header() {
             top: 64px;
             left: 0;
             right: 0;
-            background: #1e1e1e;
-            border-bottom: 1px solid #2c2c2c;
+            background: #242424;
+            border-bottom: 1px solid #404040;
             flex-direction: column;
             align-items: stretch;
             padding: 1rem;
@@ -72,8 +72,8 @@ export default function Header() {
           left: 0,
           right: 0,
           height: "64px",
-          background: "#1e1e1e",
-          borderBottom: "1px solid #2c2c2c",
+          background: "#242424",
+          borderBottom: "2px solid #404040",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -88,8 +88,8 @@ export default function Header() {
             onClick={() => setMenuOpen(!menuOpen)}
             style={{
               background: "transparent",
-              border: "1px solid #444",
-              color: "#fff",
+              border: "1px solid #666",
+              color: "#e8e8e8",
               borderRadius: "0.25rem",
               padding: "0.5rem",
               cursor: "pointer",
@@ -99,7 +99,7 @@ export default function Header() {
           >
             ☰
           </button>
-          <h2 style={{ color: "#fff", margin: 0, fontSize: "clamp(1rem, 4vw, 1.25rem)" }}>Miya Zhao</h2>
+          <h2 style={{ color: "#f5f5f5", margin: 0, fontSize: "clamp(1rem, 4vw, 1.25rem)" }}>Miya Zhao</h2>
         </div>
 
         <nav className="header-nav" style={{ display: "flex", gap: "1rem" }}>
@@ -113,8 +113,8 @@ export default function Header() {
         <button
           onClick={() => setOpen(true)}
           style={{
-            background: "#e63946",
-            color: "#fff",
+            background: "#d64545",
+            color: "#ffffff",
             border: "none",
             borderRadius: "0.5rem",
             padding: "clamp(0.4rem, 2vw, 0.5rem) clamp(0.8rem, 3vw, 1rem)",

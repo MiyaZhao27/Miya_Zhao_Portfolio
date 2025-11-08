@@ -1,52 +1,16 @@
 import ClubCard from "../components/ClubCard.jsx";
+import DogOutlineGuide from "../components/DogOutlineGuide.jsx";
 
 export default function EventPlanning() {
-  const projects = [
-    "Yale Chinese American Students Association (CASA)",
-    "Asian American Cultural Center Undergraduate Staff Coordinator",
+  const outlineSections = [
+    {
+      title: "Events & Leadership",
+      items: [
+        "Yale Chinese American Students Association (CASA)",
+        "Asian American Cultural Center Undergraduate Staff Coordinator",
+      ]
+    }
   ];
-
-  const scrollToSection = (title) => {
-    let id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    // Match specific IDs
-    if (title.includes("CASA")) {
-      id = "yale-chinese-american-students-association-casa";
-    } else if (title.includes("AACC")) {
-      id = "asian-american-cultural-center-undergraduate-staff-coordinator";
-    }
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  const sidebarStyle = {
-    position: "fixed",
-    top: "100px",
-    left: "0",
-    width: "clamp(200px, 15vw, 240px)",
-    maxHeight: "calc(100vh - 120px)",
-    overflowY: "auto",
-    padding: "clamp(1rem, 2vw, 1.5rem)",
-    background: "#1a1a1a",
-    borderRadius: "0 12px 12px 0",
-    border: "none",
-    borderRight: "1px solid #333",
-    zIndex: 10,
-  };
-
-  const outlineItemStyle = {
-    display: "block",
-    padding: "clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.4rem, 1.2vw, 0.5rem)",
-    color: "#ddd",
-    textDecoration: "none",
-    fontSize: "clamp(0.8rem, 2vw, 0.9rem)",
-    lineHeight: "1.4",
-    cursor: "pointer",
-    borderRadius: "6px",
-    transition: "all 0.2s ease",
-    marginBottom: "0.25rem",
-  };
 
   const containerStyle = {
     background: "#222",
@@ -103,31 +67,7 @@ export default function EventPlanning() {
         }
       `}</style>
     <div style={containerStyle} className="project-outline-container">
-      <aside style={sidebarStyle} className="project-outline-sidebar">
-        <h3 style={{ marginTop: 0, marginBottom: "1rem", fontSize: "1.1rem", color: "#fff" }}>
-          Projects
-        </h3>
-        {projects.map((project, idx) => (
-          <a
-            key={idx}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(project);
-            }}
-            style={outlineItemStyle}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#333";
-              e.target.style.color = "#fff";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "transparent";
-              e.target.style.color = "#ddd";
-            }}
-          >
-            {project}
-          </a>
-        ))}
-      </aside>
+      <DogOutlineGuide sections={outlineSections} />
       <div style={contentStyle} className="project-content">
       <h1 className="ep-header">Events & Culture</h1>
       <p className="ep-sub" style={{ marginBottom: "2rem" }}>

@@ -31,9 +31,9 @@ export default function Contact({ open, onClose, contact }) {
   const card = {
     width: "min(520px, 92vw)",
     maxWidth: "90vw",
-    background: "#111",
-    color: "#fff",
-    border: "1px solid #2c2c2c",
+    background: "#1a1a1a",
+    color: "#e8e8e8",
+    border: "1px solid #404040",
     borderRadius: "12px",
     padding: "clamp(1rem, 4vw, 1.25rem)",
     boxShadow: "0 20px 60px rgba(0,0,0,.5)",
@@ -48,58 +48,60 @@ export default function Contact({ open, onClose, contact }) {
     height: "clamp(60px, 15vw, 72px)",
     borderRadius: "50%",
     objectFit: "cover",
-    border: "2px solid #444",
+    border: "2px solid #666",
     flexShrink: 0,
   };
   const nameStyle = { fontSize: "clamp(1.1rem, 4vw, 1.25rem)", fontWeight: 700, margin: 0 };
 
   const contactRow = {
     display: "flex",
-    flexDirection: "column",
-    gap: "1rem",
+    flexDirection: "row",
+    gap: "2rem",
     marginTop: ".75rem",
     lineHeight: 1.8,
     color: "#ddd",
+    alignItems: "flex-start",
   };
 
   const contactInfo = {
     display: "flex",
     flexDirection: "column",
     gap: "0.5rem",
-    width: "100%",
+    flex: 1,
+    textAlign: "left",
   };
 
   const contactItem = {
-    display: "flex",
-    alignItems: "baseline",
-    gap: "0.5rem",
-    flexWrap: "wrap",
+    marginBottom: "0.75rem",
     fontSize: "clamp(0.9rem, 3vw, 1rem)",
+    textAlign: "left",
+    lineHeight: "1.3",
   };
 
   const linksColumn = {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     gap: "0.5rem",
-    alignItems: "flex-start",
-    flexWrap: "wrap",
-    width: "100%",
+    alignItems: "stretch",
+    minWidth: "120px",
   };
 
   const pill = {
     padding: ".4rem .9rem",
-    border: "1px solid #444",
+    border: "1px solid #666",
     borderRadius: "999px",
     textDecoration: "none",
-    color: "#fff",
-    background: "#222",
+    color: "#e8e8e8",
+    background: "#242424",
     transition: "all 0.25s ease",
+    textAlign: "center",
+    display: "block",
   };
   const pillHover = {
     ...pill,
-    background: "#e63946",
-    borderColor: "#e63946",
-    color: "#fff",
+    background: "#d64545",
+    borderColor: "#d64545",
+    color: "#ffffff",
   };
 
   const actions = {
@@ -112,15 +114,15 @@ export default function Contact({ open, onClose, contact }) {
   const btn = {
     padding: "clamp(0.5rem, 2vw, 0.6rem) clamp(0.8rem, 3vw, 0.9rem)",
     borderRadius: "8px",
-    border: "1px solid #444",
-    background: "#222",
-    color: "#fff",
+    border: "1px solid #666",
+    background: "#242424",
+    color: "#e8e8e8",
     cursor: "pointer",
     fontSize: "clamp(0.875rem, 3vw, 1rem)",
     flex: "1 1 auto",
     minWidth: "100px",
   };
-  const primary = { ...btn, background: "#e63946", border: "none" };
+  const primary = { ...btn, background: "#d64545", border: "none", color: "#ffffff" };
 
   const copyEmail = async () => {
     if (!email) return;
@@ -135,12 +137,10 @@ export default function Contact({ open, onClose, contact }) {
   return (
     <>
       <style>{`
-        @media (min-width: 640px) {
+        @media (max-width: 640px) {
           .contact-row-responsive {
-            flex-direction: row !important;
-          }
-          .contact-info-responsive {
-            flex: 1;
+            flex-direction: column !important;
+            gap: 1.5rem !important;
           }
         }
       `}</style>
@@ -150,7 +150,7 @@ export default function Contact({ open, onClose, contact }) {
             <img src={avatarSrc} alt={`${name} avatar`} style={avatar} />
             <div>
               <h3 style={nameStyle}>{name}</h3>
-              {location && <div style={{ color: "#aaa", fontSize: "clamp(0.85rem, 3vw, 0.95rem)" }}>{location}</div>}
+              {location && <div style={{ color: "#c4c4c4", fontSize: "clamp(0.85rem, 3vw, 0.95rem)" }}>{location}</div>}
             </div>
           </div>
 
@@ -158,16 +158,16 @@ export default function Contact({ open, onClose, contact }) {
             <div style={{...contactInfo}} className="contact-info-responsive">
               {email && (
                 <div style={contactItem}>
-                  <strong style={{ minWidth: "60px", textAlign: "left", fontSize: "inherit" }}>Email:</strong>
-                  <a href={`mailto:${email}`} style={{ color: "#9bd", textDecoration: "underline", wordBreak: "break-all" }}>
+                  <div style={{ marginBottom: "0.15rem" }}><strong>Email:</strong></div>
+                  <a href={`mailto:${email}`} style={{ color: "#d64545", textDecoration: "underline", display: "block" }}>
                     {email}
                   </a>
                 </div>
               )}
               {phone && (
                 <div style={contactItem}>
-                  <strong style={{ minWidth: "60px", textAlign: "left", fontSize: "inherit" }}>Phone:</strong>
-                  <span>{phone}</span>
+                  <div style={{ marginBottom: "0.15rem" }}><strong>Phone:</strong></div>
+                  <div>{phone}</div>
                 </div>
               )}
             </div>

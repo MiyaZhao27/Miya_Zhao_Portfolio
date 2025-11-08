@@ -1,3 +1,5 @@
+import DogOutlineGuide from "../components/DogOutlineGuide.jsx";
+
 export default function Art() {
   // Explicit list for mixed file extensions and skipped numbers
   const artworks = [
@@ -12,47 +14,12 @@ export default function Art() {
     "mzgallery9.JPG",
     "mzgallery10.JPG",
     "mzgallery12.png",
-  ].map((file, i) => ({
+  ].map((file) => ({
     src: `${import.meta.env.BASE_URL}${file}`,
   }));
 
-  const projects = [];
-
-  const scrollToSection = (title) => {
-    const id = title.toLowerCase().replace(/\s+/g, "-");
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  const sidebarStyle = {
-    position: "fixed",
-    top: "100px",
-    left: "0",
-    width: "clamp(200px, 15vw, 240px)",
-    maxHeight: "calc(100vh - 120px)",
-    overflowY: "auto",
-    padding: "clamp(1rem, 2vw, 1.5rem)",
-    background: "#1a1a1a",
-    borderRadius: "0 12px 12px 0",
-    border: "none",
-    borderRight: "1px solid #333",
-    zIndex: 10,
-  };
-
-  const outlineItemStyle = {
-    display: "block",
-    padding: "clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.4rem, 1.2vw, 0.5rem)",
-    color: "#ddd",
-    textDecoration: "none",
-    fontSize: "clamp(0.8rem, 2vw, 0.9rem)",
-    lineHeight: "1.4",
-    cursor: "pointer",
-    borderRadius: "6px",
-    transition: "all 0.2s ease",
-    marginBottom: "0.25rem",
-  };
+  // Art page doesn't have sections to navigate to, so empty sections
+  const outlineSections = [];
 
   const containerStyle = {
     background: "#222",
@@ -86,31 +53,7 @@ export default function Art() {
         }
       `}</style>
     <div style={containerStyle} className="project-outline-container">
-      <aside style={sidebarStyle} className="project-outline-sidebar">
-        <h3 style={{ marginTop: 0, marginBottom: "1rem", fontSize: "1.1rem", color: "#fff" }}>
-          Projects
-        </h3>
-        {projects.map((project, idx) => (
-          <a
-            key={idx}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(project);
-            }}
-            style={outlineItemStyle}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#333";
-              e.target.style.color = "#fff";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "transparent";
-              e.target.style.color = "#ddd";
-            }}
-          >
-            {project}
-          </a>
-        ))}
-      </aside>
+      {outlineSections.length > 0 && <DogOutlineGuide sections={outlineSections} />}
       <div style={contentStyle} className="project-content">
       <style>{`
         .masonry {
