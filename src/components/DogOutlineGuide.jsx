@@ -4,7 +4,7 @@ export default function DogOutlineGuide({ sections }) {
   const [showOutline, setShowOutline] = useState(false);
 
   const scrollToSection = (title) => {
-    let id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    let id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });

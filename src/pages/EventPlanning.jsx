@@ -1,13 +1,13 @@
-import ClubCard from "../components/ClubCard.jsx";
 import DogOutlineGuide from "../components/DogOutlineGuide.jsx";
+import EventHighlight from "../components/EventHighlight.jsx";
 
 export default function EventPlanning() {
   const outlineSections = [
     {
-      title: "Events & Leadership",
+      title: "Event Highlights",
       items: [
-        "Yale Chinese American Students Association (CASA)",
-        "Asian American Cultural Center Undergraduate Staff Coordinator",
+        "2024 Annual Cultural Show",
+        "Sok Song Origami Workshop",
       ]
     }
   ];
@@ -16,7 +16,7 @@ export default function EventPlanning() {
     background: "#222",
     color: "#fff",
     minHeight: "100vh",
-    padding: "clamp(1rem, 4vw, 2rem) clamp(0.5rem, 3vw, 50px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
+    padding: "clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
     width: "100%",
     boxSizing: "border-box",
     overflowX: "hidden",
@@ -65,32 +65,57 @@ export default function EventPlanning() {
             font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
           }
         }
+        @keyframes typing {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+          from, to { border-color: transparent; }
+          50% { border-color: #d64545; }
+        }
+        
+        @keyframes remove-caret {
+          to { border-color: transparent; }
+        }
+        
+        .typewriter-title {
+          overflow: hidden;
+          border-right: 3px solid #d64545;
+          white-space: nowrap;
+          display: inline-block;
+          animation: 
+            typing 2s steps(36, end),
+            blink-caret 0.75s step-end infinite,
+            remove-caret 0.01s 2s forwards;
+        }
       `}</style>
     <div style={containerStyle} className="project-outline-container">
       <DogOutlineGuide sections={outlineSections} />
       <div style={contentStyle} className="project-content">
-      <h1 className="ep-header">Events & Culture</h1>
+      <h1 className="ep-header"><span className="typewriter-title">Welcome to My Club and Events Blog!</span></h1>
       <p className="ep-sub" style={{ marginBottom: "2rem" }}>
-        Clubs and organizations that shaped my college experience.
+        I wanted to give some big highlights to the clubs and organizations that shaped my college experience.
+        Between working at the Asian American Cultural Center and helping run the Chinese American Student Association, event planning became a huge part of my college experience. Here I want to showcase and celebrate culture and community on campus.
       </p>
 
-      <div id="yale-chinese-american-students-association-casa">
-        <ClubCard
-          name="Yale Chinese American Students Association (CASA)"
-          badge="Culture & Community"
+      <div id="2024-annual-cultural-show">
+        <EventHighlight
+          title="2024 Annual Cultural Show"
+          date="September 2023 - Present"
+          club="CASA Cultural Chair"
+          images={[]}
           description="Promoting Chinese-American culture, leadership, and connection through campus-wide cultural showcases, mentorship, and social initiatives."
-          url="https://www.yalecasa.org/"
-          primaryLabel="Visit CASA ↗"
         />
       </div>
 
-      <div id="asian-american-cultural-center-undergraduate-staff-coordinator">
-        <ClubCard
-          name="Asian American Cultural Center Undergraduate Staff Coordinator "
-          badge="Culture & Community"
+      <div id="sok-song-origami-workshop">
+        <EventHighlight
+          title="Sok Song Origami Workshop"
+          date="August 2022 - May 2024"
+          club="AACC HACR Team"
+          images={[]}
           description="Coordinating cultural events and community initiatives to promote Asian-American heritage and student engagement on campus."
-          url="https://aacc.yale.edu/"
-          primaryLabel="Visit AACC ↗"
         />
       </div>
       </div>

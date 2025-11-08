@@ -9,9 +9,9 @@ export default function DataAnalytics() {
     {
       title: "Data Visualization Tools",
       items: [
-        "Property Values (Interactions & Splines, Plotly)",
-        "L-Asparaginase Features Explorer",
-        "EV Charging Station Visualization",
+        "Finding Home: Visualizing Property Values Along the Metro-North Line",
+        "L-Asparaginase Feature Analysis Dashboard",
+        "EV Charging Station Explorer",
       ]
     },
     {
@@ -62,7 +62,7 @@ export default function DataAnalytics() {
     background: "#222",
     color: "#fff",
     minHeight: "100vh",
-    padding: "clamp(1rem, 4vw, 2rem) clamp(0.5rem, 3vw, 50px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
+    padding: "clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
     width: "100%",
     boxSizing: "border-box",
     overflowX: "hidden",
@@ -75,24 +75,24 @@ export default function DataAnalytics() {
 
   const apps = [
     {
-      name: "Property Values (Interactions & Splines, Plotly)",
+      name: "Finding Home: Visualizing Property Values Along the Metro-North Line",
       url: "https://mz27.shinyapps.io/pset5-Property-Values-Interactions-Splines-Shiny-Plotly/",
       desc:
-        "Interactive exploration of housing price features with interaction terms and spline fits, using live Plotly visualizations built in R Shiny.",
+        "This project was a homework assignment birthed from my data science instructor's search for a home with his fiancée after their wedding. They needed to find a place between New York City and New Haven along the Metro-North line, balancing factors such as commute time, housing price, neighborhood diversity, and accessibility. Using an interactive R Shiny dashboard with Plotly visualizations, the project enabled dynamic exploration of housing features and how they varied across the region. A Leaflet map highlighted top candidate neighborhoods based on the couple's priorities, providing a clear and engaging way to compare potential locations.",
       height: 820,
     },
     {
-      name: "L-Asparaginase Features Explorer",
+      name: "L-Asparaginase Feature Analysis Dashboard",
       url: "https://mz27.shinyapps.io/aspgfeatures/",
       desc:
-        "Feature analysis dashboard for L-asparaginase datasets with interactive filtering, model-ready exports, and visual summaries for residue-level properties.",
+        "A feature analysis dashboard designed for L-asparaginase datasets, providing interactive filtering, model-ready exports, and visual summaries for residue-level properties. Structural and biochemical information was imported directly from the Protein Data Bank (PDB), enabling accurate exploration of residue-specific features. The dashboard directly supported the logistic regression model in our iGEM protein functionalization pipeline, helping refine site selection for later lipid functionalization. The built-in feature one-hot converter streamlined data preparation by allowing users to select residues by feature and export one-hot encoded values for use in machine learning models.",
       height: 820,
     },
     {
-      name: "EV Charging Station Visualization",
+      name: "EV Charging Station Explorer",
       url: "https://mz27.shinyapps.io/EVshinyapp/",
       desc:
-        "Interactive visualization of electric vehicle charging stations, including location mapping, usage statistics, and accessibility analysis.",
+        "This project is an interactive Shiny app designed to help users explore EV charging stations across the United States. Users can filter stations by state, network, opening date, charging level, and availability, and view results on an interactive Leaflet map with clear visual markers. The project was completed as a homework assignment but felt particularly relevant given the growing support for electric vehicles and government subsidies encouraging their adoption. The app allows for easy identification of convenient, accessible charging locations, helping users plan routes and evaluate infrastructure availability.",
       height: 820,
     },
   ];
@@ -139,11 +139,35 @@ export default function DataAnalytics() {
             font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
           }
         }
+        @keyframes typing {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+          from, to { border-color: transparent; }
+          50% { border-color: #d64545; }
+        }
+        
+        @keyframes remove-caret {
+          to { border-color: transparent; }
+        }
+        
+        .typewriter-title {
+          overflow: hidden;
+          border-right: 3px solid #d64545;
+          white-space: nowrap;
+          display: inline-block;
+          animation: 
+            typing 2s steps(25, end),
+            blink-caret 0.75s step-end infinite,
+            remove-caret 0.01s 2s forwards;
+        }
       `}</style>
     <div style={containerStyle} className="project-outline-container">
       <DogOutlineGuide sections={outlineSections} />
       <div style={contentStyle} className="project-content">
-      <h1 className="ep-header">Data Analytics Projects</h1>
+      <h1 className="ep-header"><span className="typewriter-title">Data Analytics Projects</span></h1>
       <p className="ep-sub" style={{ marginBottom: "3rem" }}>
         A showcase of projects applying statistical modeling, visualization, and predictive
         analysis to uncover insights from real-world datasets. Each project integrates data
@@ -151,14 +175,14 @@ export default function DataAnalytics() {
       </p>
 
       {/* ===== Shiny apps (stacked) ===== */}
-      <h2 style={{ textAlign: "left", margin: "1rem 0 2rem" }}>Data Visualization Tools</h2>
+      <h2 style={{ textAlign: "left", margin: "1rem 0 2rem", fontSize: "2rem", borderBottom: "2px solid #d64545", paddingBottom: "0.5rem" }}>Data Visualization Tools</h2>
       <div style={{ display: "flex", flexDirection: "column", gap: "3rem", marginBottom: "4rem" }}>
         {apps.map((a, i) => {
           const sectionId = a.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
           return (
           <div key={i} id={sectionId} style={{ width: "100%", margin: "0 auto" }}>
-            <h3 style={{ textAlign: "center", marginBottom: "0.5rem" }}>{a.name}</h3>
-            <p className="ep-sub" style={{ textAlign: "center", marginBottom: "1rem" }}>{a.desc}</p>
+            <h3 style={{ textAlign: "left", marginBottom: "0.5rem" }}>{a.name}</h3>
+            <p className="ep-sub" style={{ textAlign: "left", marginBottom: "1rem" }}>{a.desc}</p>
             <ShinyEmbed url={a.url} title={a.name} height={a.height} />
             <div style={{ textAlign: "center", marginTop: ".75rem" }}>
               <a
@@ -183,11 +207,17 @@ export default function DataAnalytics() {
         })}
       </div>
 
-            <h2 style={{ textAlign: "left", margin: "1rem 0 2rem" }}>Data Analytics Projects</h2>
+            <h2 style={{ textAlign: "left", margin: "1rem 0 2rem", fontSize: "2rem", borderBottom: "2px solid #d64545", paddingBottom: "0.5rem" }}>Data Analytics Projects</h2>
 
-      {/* --- Paper 1 (PDF left, text right aligned) --- */}
-      <div id="analysis-of-world-happiness-trends" style={sectionStyle} className="section-responsive">
-        <div style={pdfContainer} className="pdf-container-responsive">
+      {/* --- Paper 1 --- */}
+      <div id="analysis-of-world-happiness-trends" style={{ marginBottom: "3rem" }}>
+        <div style={{ marginBottom: "1.5rem", textAlign: "left" }}>
+          <h3 style={{ fontSize: "1.5rem", marginBottom: "0.75rem", textAlign: "left" }}>Analysis of World Happiness Trends</h3>
+          <p style={{ color: "#ddd", lineHeight: "1.6", fontSize: "1.05rem", textAlign: "left" }}>
+            This analytics report explores global happiness survey data over multiple years to identify key socioeconomic factors driving well-being. Using regression modeling and correlation analysis, it highlights that social support, healthy life expectancy, perceptions of corruption, and emotional well-being are the strongest predictors of life satisfaction, while factors like generosity show little impact. The study also reveals regional differences, emphasizing how location and living conditions shape happiness. Visualizations were created using R packages like ggplot2.
+          </p>
+        </div>
+        <div style={{ width: "100%" }}>
           <object data={paper1} type="application/pdf" style={frameStyle}>
             <p>
               Unable to display PDF.{" "}
@@ -198,21 +228,29 @@ export default function DataAnalytics() {
             </p>
           </object>
         </div>
-
-        <div style={{ ...textStyle, textAlign: "right", alignItems: "flex-end" }} className="text-responsive">
-          <h2>Analysis of World Happiness Trends</h2>
-          <p>
-            This analytics report explores global happiness survey data over multiple years to
-            identify key socioeconomic factors driving well-being. Using regression modeling and
-            correlation heatmaps, it reveals patterns in income, freedom, and health indicators
-            across nations. Visualizations were created using R packages like ggplot2.
-          </p>
-        </div>
       </div>
 
-      {/* --- Paper 2 (PDF right, text left aligned) --- */}
-      <div id="covid-19-steady-state-modeling" style={{ ...sectionStyle, flexDirection: "row-reverse" }} className="section-responsive">
-        <div style={pdfContainer} className="pdf-container-responsive">
+      {/* --- Paper 2 --- */}
+      <div id="covid-19-steady-state-modeling" style={{ marginBottom: "3rem" }}>
+        <div style={{ marginBottom: "1.5rem", textAlign: "left" }}>
+          <h3 style={{ fontSize: "1.5rem", marginBottom: "0.75rem", textAlign: "left" }}>COVID-19 Steady State Modeling</h3>
+          <p style={{ color: "#ddd", lineHeight: "1.6", fontSize: "1.05rem", textAlign: "left" }}>
+            In 2020, the COVID-19 pandemic irreversibly changed global health, economies, and daily life. Four years later, shifts from
+            rapid response to immediate outbreaks to dealing with the virus’s long-term effects led to new important questions: Will
+            COVID-19 infection rates settle down over time, and what factors will influence their long-term behavior? Additionally,
+            can we use sporadic updates to predict daily new cases in order to more accurately track the progression of cumulative
+            cases of COVID through a population? Answering these questions is crucial for future public health strategies and the
+            ever growing impact of airborne infections. This project uses linear algebra methods, specifically Markov chains with
+            steady-state analysis and least-square approximation, to study and predict how COVID-19 infection rates might change
+            over given time periods. Markov chains model the chances of moving between different stages of infection, allowing us to
+            find steady states of infection rates and make important assumptions. Additionally, these matrices allow for individualized
+            probability predictions after a certain time frame (transitions). On the other hand, least-square approximation provides a
+            way to determine COVID-19 cases more accurately in broader data sets, which is useful when COVID-19 data is tracked
+            at larger time intervals. By combining these mathematical tools, this study aims to determine the future of COVID-19
+            in our population.
+          </p>
+        </div>
+        <div style={{ width: "100%" }}>
           <object data={paper2} type="application/pdf" style={frameStyle}>
             <p>
               Unable to display PDF.{" "}
@@ -222,15 +260,6 @@ export default function DataAnalytics() {
               .
             </p>
           </object>
-        </div>
-
-        <div style={{ ...textStyle, textAlign: "left", alignItems: "flex-start" }} className="text-responsive">
-          <h2>COVID-19 Steady State Modeling</h2>
-          <p>
-            This project uses time-series data and epidemiological modeling to analyze COVID-19
-            transmission dynamics. A steady-state model was implemented to predict equilibrium case
-            levels at different points of the pandemic.
-          </p>
         </div>
       </div>
       </div>

@@ -12,7 +12,7 @@ export default function Art() {
     "mzgallery7.png",
     "mzgallery8.JPG",
     "mzgallery9.JPG",
-    "mzgallery10.JPG",
+    "gallery10.png",
     "mzgallery12.png",
   ].map((file) => ({
     src: `${import.meta.env.BASE_URL}${file}`,
@@ -25,7 +25,7 @@ export default function Art() {
     background: "#222",
     color: "#fff",
     minHeight: "100vh",
-    padding: "clamp(1rem, 4vw, 2rem) clamp(0.5rem, 3vw, 50px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
+    padding: "clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
     width: "100%",
     boxSizing: "border-box",
     overflowX: "hidden",
@@ -57,11 +57,11 @@ export default function Art() {
       <div style={contentStyle} className="project-content">
       <style>{`
         .masonry {
-          column-count: 4;
+          column-count: 3;
           column-gap: 1.5rem;
           padding: 140px 1rem 2rem; 
         }
-        @media (max-width: 1200px) { .masonry { column-count: 3; } }
+        @media (max-width: 1200px) { .masonry { column-count: 2; } }
         @media (max-width: 900px)  { .masonry { column-count: 2; } }
         @media (max-width: 600px)  { .masonry { column-count: 1; } }
 
@@ -95,12 +95,12 @@ export default function Art() {
         .art-header {
           text-align: center;
           margin-top: 50px;
-          margin-bottom: 1.5rem;
+          margin-bottom: 0.5rem;
         }
         .art-sub {
           text-align: center;
           max-width: 600px;
-          margin: 0 auto 2rem;
+          margin: 0 auto 0;
           color: #ddd;
         }
         * {
@@ -138,9 +138,33 @@ export default function Art() {
             padding-top: 80px !important;
           }
         }
+        @keyframes typing {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+          from, to { border-color: transparent; }
+          50% { border-color: #d64545; }
+        }
+        
+        @keyframes remove-caret {
+          to { border-color: transparent; }
+        }
+        
+        .typewriter-title {
+          overflow: hidden;
+          border-right: 3px solid #d64545;
+          white-space: nowrap;
+          display: inline-block;
+          animation: 
+            typing 2s steps(29, end),
+            blink-caret 0.75s step-end infinite,
+            remove-caret 0.01s 2s forwards;
+        }
       `}</style>
 
-      <h1 className="art-header">Welcome to My Art Gallery!</h1>
+      <h1 className="art-header"><span className="typewriter-title">Welcome to My Art Gallery!</span></h1>
       <p className="art-sub">A collection of my digital pieces and creative sketches.</p>
 
       <div className="masonry">
