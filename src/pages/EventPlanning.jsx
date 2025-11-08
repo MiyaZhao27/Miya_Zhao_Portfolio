@@ -6,7 +6,7 @@ export default function EventPlanning() {
   const events = [
     {
       id: "cultural-show-2024",
-      title: "2024 Annual Cultural Show",
+      title: "2024\nAnnual Cultural Show",
       date: "April 2024",
       club: "CASA Cultural Chair",
       coverImage: `${import.meta.env.BASE_URL}cultshow1.png`,
@@ -175,7 +175,7 @@ export default function EventPlanning() {
       <DogOutlineGuide sections={outlineSections} />
       <div style={contentStyle} className="project-content">
       <h1 className="ep-header"><span className="typewriter-title">Welcome to My Events Blog!</span></h1>
-      <p className="ep-sub" style={{ marginBottom: "3rem" }}>
+      <p className="ep-sub" style={{ marginBottom: "3rem", textAlign: "center" }}>
         I wanted to give some big highlights to the clubs and organizations that shaped my college experience.
         Between working at the Asian American Cultural Center and helping run the Chinese American Student Association, event planning became a huge part of my college experience. Here I want to showcase and celebrate culture and community on campus.
       </p>

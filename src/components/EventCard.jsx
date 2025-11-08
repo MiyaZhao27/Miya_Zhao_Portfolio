@@ -18,7 +18,7 @@ export default function EventCard({ id, coverImage, title, date, club, preview }
           overflow: "hidden",
           cursor: "pointer",
           transition: "transform 0.2s ease, box-shadow 0.2s ease",
-          height: "100%",
+          height: "500px",
           display: "flex",
           flexDirection: "column",
         }}
@@ -57,9 +57,14 @@ export default function EventCard({ id, coverImage, title, date, club, preview }
             style={{
               color: "#e8e8e8",
               fontSize: "1.25rem",
-              marginBottom: "0.35rem",
+              marginBottom: "0.15rem",
               fontWeight: "600",
               textAlign: "center",
+              whiteSpace: "pre-line",
+              minHeight: "3rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             {title}
@@ -69,7 +74,7 @@ export default function EventCard({ id, coverImage, title, date, club, preview }
           <div
             style={{
               textAlign: "center",
-              marginBottom: "0.35rem",
+              marginBottom: "0.15rem",
             }}
           >
             <span

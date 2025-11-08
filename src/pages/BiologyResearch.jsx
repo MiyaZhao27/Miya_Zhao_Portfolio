@@ -169,6 +169,7 @@ export default function BiologyResearch() {
         className="ep-sub"
         style={{
           marginBottom: "3rem",
+          textAlign: "center",
         }}
       >
         A collection of research projects exploring synthetic biology,

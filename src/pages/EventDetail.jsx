@@ -6,13 +6,38 @@ const eventData = {
     title: "2024 Annual Cultural Show",
     date: "April 2024",
     club: "CASA Cultural Chair",
-    coverImage: `${import.meta.env.BASE_URL}cultshow1.png`,
+    coverImage: `${import.meta.env.BASE_URL}cultshow2.png`,
     images: [
-      `${import.meta.env.BASE_URL}cultshow1.png`,
       `${import.meta.env.BASE_URL}cultshow2.png`,
+      `${import.meta.env.BASE_URL}cultshow1.png`,
       `${import.meta.env.BASE_URL}cultshow3.png`,
+      `${import.meta.env.BASE_URL}cultshow4.png`,
+      `${import.meta.env.BASE_URL}cultshow5.png`,
+      `${import.meta.env.BASE_URL}cultshow6.png`,
     ],
-    content: `The 2024 CASA Annual Cultural Show was a celebration of Chinese-American heritage.`,
+    contentSections: [
+      {
+        text: `For as long as we could remember, CASA has hosted a Cultural Show. A vibrant display of the community's talent and give back to the community with game show style raffles. Think Chinese New Years Game Shows! 2024's theme, "Wings of Harmony," celebrated the Year of the Dragon and the unity of our campus in increasingly divisive times.`,
+        images: [
+          `${import.meta.env.BASE_URL}cultshow2.png`,
+        ]
+      },
+      {
+        text: `Puiyee and I spent months on the planning, recruitment, and logistics to make sure everything ran smoothly and it was all so worth it. Over 200 guests showed up! The lineup featured everything from Wushu and dance to instrumental pieces and a reveal of the classic First Year skit. We had a lot of fun emceeing the event and making the audience get engaged with our games (Heart Rate challenge was a hit). People got really into the raffle. Prizes included plushies, a hot pot set, and a karaoke mic.`,
+        images: [
+          `${import.meta.env.BASE_URL}cultshow1.png`,
+          `${import.meta.env.BASE_URL}cultshow3.png`,
+        ]
+      },
+      {
+        text: `Food tables were stacked with Chinese snacks and dishes and were all gone by the end. The Cultural Show continues to be one of CASA's most fun traditions. Through all trials and tribulations it stays lively and full of personality. "Wings of Harmony" definitely lived up to the name.`,
+        images: [
+          `${import.meta.env.BASE_URL}cultshow4.png`,
+          `${import.meta.env.BASE_URL}cultshow5.png`,
+          `${import.meta.env.BASE_URL}cultshow6.png`,
+        ]
+      }
+    ],
   },
   "sok-song-origami": {
     title: "Sok Song Origami Workshop",
@@ -23,9 +48,9 @@ const eventData = {
     content: `The Sok Song Origami Workshop .`,
   },
   "event-3": {
-    title: "Event Title 3",
-    date: "Month Year",
-    club: "Organization Name",
+    title: "YuanXiao Jie Celebration",
+    date: "Janurary 2025",
+    club: "CASA Cultural Chair",
     coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
     images: [],
     content: `Add your full event description here. You can write multiple paragraphs about the event.
@@ -35,9 +60,9 @@ Include details about what happened, who was involved, and what made this event 
 This is where you can tell the full story of your event with as much detail as you'd like.`,
   },
   "event-4": {
-    title: "Event Title 4",
-    date: "Month Year",
-    club: "Organization Name",
+    title: "Mid-Autumn Festival Celebration",
+    date: "Janurary 2025",
+    club: "CASA Cultural Chair",
     coverImage: `${import.meta.env.BASE_URL}cultshow1.png`,
     images: [],
     content: `Add your full event description here. You can write multiple paragraphs about the event.
@@ -47,9 +72,9 @@ Include details about what happened, who was involved, and what made this event 
 This is where you can tell the full story of your event with as much detail as you'd like.`,
   },
   "event-5": {
-    title: "Event Title 5",
-    date: "Month Year",
-    club: "Organization Name",
+    title: "Hot Pot Night",
+    date: "Janurary 2025",
+    club: "CASA Cultural Chair",
     coverImage: `${import.meta.env.BASE_URL}cultshow2.png`,
     images: [],
     content: `Add your full event description here. You can write multiple paragraphs about the event.
@@ -59,9 +84,9 @@ Include details about what happened, who was involved, and what made this event 
 This is where you can tell the full story of your event with as much detail as you'd like.`,
   },
   "event-6": {
-    title: "Event Title 6",
-    date: "Month Year",
-    club: "Organization Name",
+    title: "Singles Night",
+    date: "Janurary 2025",
+    club: "CASA Cultural Chair",
     coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
     images: [],
     content: `Add your full event description here. You can write multiple paragraphs about the event.
@@ -71,9 +96,9 @@ Include details about what happened, who was involved, and what made this event 
 This is where you can tell the full story of your event with as much detail as you'd like.`,
   },
   "event-7": {
-    title: "Event Title 7",
+    title: "asiarchitecture!",
     date: "Month Year",
-    club: "Organization Name",
+    club: "AACC HACR Team",
     coverImage: `${import.meta.env.BASE_URL}cultshow1.png`,
     images: [],
     content: `Add your full event description here. You can write multiple paragraphs about the event.
@@ -83,9 +108,9 @@ Include details about what happened, who was involved, and what made this event 
 This is where you can tell the full story of your event with as much detail as you'd like.`,
   },
   "event-8": {
-    title: "Event Title 8",
+    title: "Lunar Ball",
     date: "Month Year",
-    club: "Organization Name",
+    club: "CASA Co-President",
     coverImage: `${import.meta.env.BASE_URL}cultshow2.png`,
     images: [],
     content: `Add your full event description here. You can write multiple paragraphs about the event.
@@ -138,9 +163,9 @@ export default function EventDetail() {
   };
 
   const imageGridStyle = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    gap: "0",
     marginBottom: "2rem",
   };
 
@@ -194,39 +219,59 @@ export default function EventDetail() {
           )}
         </div>
 
-        {/* Images */}
-        {event.images && event.images.length > 0 && (
-          <div style={imageGridStyle}>
-            {event.images.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt={`${event.title} ${i + 1}`}
+        {/* Content Sections with Interspersed Images */}
+        {event.contentSections ? (
+          event.contentSections.map((section, sectionIdx) => (
+            <div key={sectionIdx} style={{ marginBottom: "3rem" }}>
+              {/* Text */}
+              <p
                 style={{
-                  width: "100%",
-                  height: "auto",
-                  aspectRatio: "16/9",
-                  objectFit: "cover",
-                  borderRadius: "12px",
-                  border: "1px solid #404040",
+                  color: "#ddd",
+                  lineHeight: "1.8",
+                  fontSize: "1.1rem",
+                  textAlign: "left",
+                  marginBottom: "1.5rem",
                 }}
-              />
-            ))}
+              >
+                {section.text}
+              </p>
+              
+              {/* Images for this section */}
+              {section.images && section.images.length > 0 && (
+                <div style={imageGridStyle}>
+                  {section.images.map((img, imgIdx) => (
+                    <img
+                      key={imgIdx}
+                      src={img}
+                      alt={`${event.title} section ${sectionIdx + 1} image ${imgIdx + 1}`}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "contain",
+                        borderRadius: "8px",
+                        border: "1px solid #404040",
+                        background: "#1a1a1a",
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          ))
+        ) : (
+          /* Fallback for old content format */
+          <div
+            style={{
+              color: "#ddd",
+              lineHeight: "1.8",
+              fontSize: "1.1rem",
+              whiteSpace: "pre-line",
+              textAlign: "left",
+            }}
+          >
+            {event.content}
           </div>
         )}
-
-        {/* Content */}
-        <div
-          style={{
-            color: "#ddd",
-            lineHeight: "1.8",
-            fontSize: "1.1rem",
-            whiteSpace: "pre-line",
-            textAlign: "left",
-          }}
-        >
-          {event.content}
-        </div>
       </div>
     </div>
   );

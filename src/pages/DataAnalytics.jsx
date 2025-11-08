@@ -168,7 +168,7 @@ export default function DataAnalytics() {
       <DogOutlineGuide sections={outlineSections} />
       <div style={contentStyle} className="project-content">
       <h1 className="ep-header"><span className="typewriter-title">Data Analytics Projects</span></h1>
-      <p className="ep-sub" style={{ marginBottom: "3rem" }}>
+      <p className="ep-sub" style={{ marginBottom: "3rem", textAlign: "center" }}>
         A showcase of projects applying statistical modeling, visualization, and predictive
         analysis to uncover insights from real-world datasets. Each project integrates data
         storytelling with technical rigor to communicate impactful findings.
