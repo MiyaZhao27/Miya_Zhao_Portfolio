@@ -23,19 +23,19 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: clamp(1.75rem, 5vw, 2.2rem);
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: clamp(1.4rem, 4vw, 1.75rem);
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 3.5vw, 1.4rem);
 }
 
 p, a, li {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
 }
 
 .ep-header {

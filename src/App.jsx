@@ -13,7 +13,7 @@ export default function App() {
       <main
         style={{
           paddingTop: "80px",
-          padding: "2rem",
+          padding: "clamp(1rem, 4vw, 2rem)",
           minHeight: "100vh",
           background: "#222",
           color: "#fff",

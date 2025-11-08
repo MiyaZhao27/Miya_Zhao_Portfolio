@@ -10,8 +10,8 @@ export default function ClubCard({
     display: "block",
     width: "100%",
     maxWidth: "1100px",
-    margin: "0 auto 2rem",
-    padding: "1.25rem 1.25rem",
+    margin: "0 auto clamp(1rem, 4vw, 2rem)",
+    padding: "clamp(1rem, 3vw, 1.25rem)",
     borderRadius: "14px",
     background: "#111",
     border: "1px solid #2c2c2c",
@@ -37,8 +37,8 @@ export default function ClubCard({
     color: "#ddd",
   };
 
-  const title = { margin: 0, fontSize: "1.35rem", fontWeight: 700, lineHeight: 1.25 };
-  const desc  = { margin: ".35rem 0 0", color: "#cfcfcf", lineHeight: 1.6 };
+  const title = { margin: 0, fontSize: "clamp(1.1rem, 3.5vw, 1.35rem)", fontWeight: 700, lineHeight: 1.25 };
+  const desc  = { margin: ".35rem 0 0", color: "#cfcfcf", lineHeight: 1.6, fontSize: "clamp(0.95rem, 2.5vw, 1rem)" };
 
   const actions = { display: "flex", gap: ".6rem", marginTop: ".9rem", flexWrap: "wrap" };
   const btn = {

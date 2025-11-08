@@ -5,10 +5,12 @@ import Contact from "./Contact.jsx";
 export default function Header() {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const link = (to, label) => (
     <Link
       to={to}
+      onClick={() => setMenuOpen(false)}
       style={{
         padding: "0.5rem 1rem",
         borderRadius: "0.4rem",
@@ -16,6 +18,8 @@ export default function Header() {
         color: pathname === to ? "#fff" : "#ccc",
         background: pathname === to ? "#3c3c3c" : "transparent",
         transition: "background 0.2s",
+        display: "block",
+        whiteSpace: "nowrap",
       }}
     >
       {label}
@@ -24,6 +28,43 @@ export default function Header() {
 
   return (
     <>
+      <style>{`
+        @media (max-width: 768px) {
+          .header-nav {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: #1e1e1e;
+            border-bottom: 1px solid #2c2c2c;
+            flex-direction: column;
+            align-items: stretch;
+            padding: 1rem;
+            gap: 0.5rem;
+            transform: translateY(${menuOpen ? '0' : '-100%'});
+            opacity: ${menuOpen ? '1' : '0'};
+            visibility: ${menuOpen ? 'visible' : 'hidden'};
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+          }
+          .header-nav a {
+            width: 100%;
+            text-align: center;
+          }
+          .menu-toggle {
+            display: block !important;
+          }
+        }
+        @media (min-width: 769px) {
+          .header-nav {
+            display: flex !important;
+          }
+          .menu-toggle {
+            display: none !important;
+          }
+        }
+      `}</style>
       <header
         style={{
           position: "fixed",
@@ -36,14 +77,32 @@ export default function Header() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0 2rem",
+          padding: "0 1rem",
           boxSizing: "border-box",
           zIndex: 1000,
         }}
       >
-        <h2 style={{ color: "#fff", margin: 0 }}>Miya Zhao</h2>
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <button
+            className="menu-toggle"
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              background: "transparent",
+              border: "1px solid #444",
+              color: "#fff",
+              borderRadius: "0.25rem",
+              padding: "0.5rem",
+              cursor: "pointer",
+              display: "none",
+            }}
+            aria-label="Toggle menu"
+          >
+            ☰
+          </button>
+          <h2 style={{ color: "#fff", margin: 0, fontSize: "clamp(1rem, 4vw, 1.25rem)" }}>Miya Zhao</h2>
+        </div>
 
-        <nav style={{ display: "flex", gap: "1rem" }}>
+        <nav className="header-nav" style={{ display: "flex", gap: "1rem" }}>
           {link("/", "Home")}
           {link("/data-analytics", "Data Analytics")}
           {link("/biology-research", "Research")}
@@ -58,9 +117,11 @@ export default function Header() {
             color: "#fff",
             border: "none",
             borderRadius: "0.5rem",
-            padding: "0.5rem 1rem",
+            padding: "clamp(0.4rem, 2vw, 0.5rem) clamp(0.8rem, 3vw, 1rem)",
             cursor: "pointer",
             fontWeight: 600,
+            fontSize: "clamp(0.875rem, 2.5vw, 1rem)",
+            whiteSpace: "nowrap",
           }}
         >
           Contact Me

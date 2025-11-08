@@ -30,10 +30,10 @@ export default function Art() {
     position: "fixed",
     top: "100px",
     left: "0",
-    width: "240px",
+    width: "clamp(200px, 15vw, 240px)",
     maxHeight: "calc(100vh - 120px)",
     overflowY: "auto",
-    padding: "1.5rem",
+    padding: "clamp(1rem, 2vw, 1.5rem)",
     background: "#1a1a1a",
     borderRadius: "0 12px 12px 0",
     border: "none",
@@ -43,10 +43,10 @@ export default function Art() {
 
   const outlineItemStyle = {
     display: "block",
-    padding: "0.75rem 0.5rem",
+    padding: "clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.4rem, 1.2vw, 0.5rem)",
     color: "#ddd",
     textDecoration: "none",
-    fontSize: "0.9rem",
+    fontSize: "clamp(0.8rem, 2vw, 0.9rem)",
     lineHeight: "1.4",
     cursor: "pointer",
     borderRadius: "6px",
@@ -58,7 +58,7 @@ export default function Art() {
     background: "#222",
     color: "#fff",
     minHeight: "100vh",
-    padding: "2rem 50px 2rem 100px",
+    padding: "clamp(1rem, 4vw, 2rem) clamp(0.5rem, 3vw, 50px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
     width: "100%",
     boxSizing: "border-box",
     overflowX: "hidden",
@@ -166,7 +166,7 @@ export default function Art() {
         body {
           overflow-x: hidden;
         }
-        @media (max-width: 1200px) {
+        @media (max-width: 1024px) {
           .project-outline-sidebar {
             position: relative !important;
             left: 0 !important;
@@ -175,9 +175,24 @@ export default function Art() {
             max-height: none !important;
             border-radius: 12px !important;
             border-right: none !important;
+            top: 0 !important;
           }
           .project-outline-container {
-            padding-left: 2rem !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            padding-top: 1rem !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .project-outline-container {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+          }
+          h1 {
+            font-size: clamp(1.5rem, 6vw, 2rem) !important;
+          }
+          .masonry {
+            padding-top: 80px !important;
           }
         }
       `}</style>
@@ -197,3 +212,4 @@ export default function Art() {
     </>
   );
 }
+

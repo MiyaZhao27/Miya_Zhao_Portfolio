@@ -39,16 +39,17 @@ export default function DataAnalytics() {
     borderRadius: "12px",
     boxShadow: "0 0 20px rgba(0,0,0,0.5)",
     width: "100%",
-    height: "500px",
+    height: "clamp(400px, 50vw, 500px)",
+    minHeight: "400px",
   };
 
   const sectionStyle = {
     display: "flex",
-    alignItems: "center",          // vertical center with the PDF
+    alignItems: "center",
     justifyContent: "space-between",
-    gap: "2rem",
+    gap: "clamp(1rem, 4vw, 2rem)",
     flexWrap: "wrap",
-    marginBottom: "4rem",
+    marginBottom: "clamp(2rem, 6vw, 4rem)",
   };
 
   const textStyle = {
@@ -70,10 +71,10 @@ export default function DataAnalytics() {
     position: "fixed",
     top: "100px",
     left: "0",
-    width: "240px",
+    width: "clamp(200px, 15vw, 240px)",
     maxHeight: "calc(100vh - 120px)",
     overflowY: "auto",
-    padding: "1.5rem",
+    padding: "clamp(1rem, 2vw, 1.5rem)",
     background: "#1a1a1a",
     borderRadius: "0 12px 12px 0",
     border: "none",
@@ -83,10 +84,10 @@ export default function DataAnalytics() {
 
   const outlineItemStyle = {
     display: "block",
-    padding: "0.75rem 0.5rem",
+    padding: "clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.4rem, 1.2vw, 0.5rem)",
     color: "#ddd",
     textDecoration: "none",
-    fontSize: "0.9rem",
+    fontSize: "clamp(0.8rem, 2vw, 0.9rem)",
     lineHeight: "1.4",
     cursor: "pointer",
     borderRadius: "6px",
@@ -98,7 +99,7 @@ export default function DataAnalytics() {
     background: "#222",
     color: "#fff",
     minHeight: "100vh",
-    padding: "2rem 50px 2rem 100px",
+    padding: "clamp(1rem, 4vw, 2rem) clamp(0.5rem, 3vw, 50px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
     width: "100%",
     boxSizing: "border-box",
     overflowX: "hidden",
@@ -142,7 +143,7 @@ export default function DataAnalytics() {
         body {
           overflow-x: hidden;
         }
-        @media (max-width: 1200px) {
+        @media (max-width: 1024px) {
           .project-outline-sidebar {
             position: relative !important;
             left: 0 !important;
@@ -151,9 +152,37 @@ export default function DataAnalytics() {
             max-height: none !important;
             border-radius: 12px !important;
             border-right: none !important;
+            top: 0 !important;
           }
           .project-outline-container {
-            padding-left: 2rem !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            padding-top: 1rem !important;
+          }
+          .section-responsive {
+            flex-direction: column !important;
+          }
+          .pdf-container-responsive {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 1 1 100% !important;
+          }
+          .text-responsive {
+            text-align: left !important;
+            align-items: flex-start !important;
+            width: 100% !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .project-outline-container {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+          }
+          h1 {
+            font-size: clamp(1.5rem, 6vw, 2rem) !important;
+          }
+          h2 {
+            font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
           }
         }
       `}</style>
@@ -227,8 +256,8 @@ export default function DataAnalytics() {
             <h2 style={{ textAlign: "left", margin: "1rem 0 2rem" }}>Data Analytics Projects</h2>
 
       {/* --- Paper 1 (PDF left, text right aligned) --- */}
-      <div id="analysis-of-world-happiness-trends" style={sectionStyle}>
-        <div style={pdfContainer}>
+      <div id="analysis-of-world-happiness-trends" style={sectionStyle} className="section-responsive">
+        <div style={pdfContainer} className="pdf-container-responsive">
           <object data={paper1} type="application/pdf" style={frameStyle}>
             <p>
               Unable to display PDF.{" "}
@@ -240,7 +269,7 @@ export default function DataAnalytics() {
           </object>
         </div>
 
-        <div style={{ ...textStyle, textAlign: "right", alignItems: "flex-end" }}>
+        <div style={{ ...textStyle, textAlign: "right", alignItems: "flex-end" }} className="text-responsive">
           <h2>Analysis of World Happiness Trends</h2>
           <p>
             This analytics report explores global happiness survey data over multiple years to
@@ -252,8 +281,8 @@ export default function DataAnalytics() {
       </div>
 
       {/* --- Paper 2 (PDF right, text left aligned) --- */}
-      <div id="covid-19-steady-state-modeling" style={{ ...sectionStyle, flexDirection: "row-reverse" }}>
-        <div style={pdfContainer}>
+      <div id="covid-19-steady-state-modeling" style={{ ...sectionStyle, flexDirection: "row-reverse" }} className="section-responsive">
+        <div style={pdfContainer} className="pdf-container-responsive">
           <object data={paper2} type="application/pdf" style={frameStyle}>
             <p>
               Unable to display PDF.{" "}
@@ -265,7 +294,7 @@ export default function DataAnalytics() {
           </object>
         </div>
 
-        <div style={{ ...textStyle, textAlign: "left", alignItems: "flex-start" }}>
+        <div style={{ ...textStyle, textAlign: "left", alignItems: "flex-start" }} className="text-responsive">
           <h2>COVID-19 Steady State Modeling</h2>
           <p>
             This project uses time-series data and epidemiological modeling to analyze COVID-19

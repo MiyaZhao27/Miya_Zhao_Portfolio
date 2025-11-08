@@ -42,9 +42,9 @@ export default function BiologyResearch() {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: "2rem",
+    gap: "clamp(1rem, 4vw, 2rem)",
     flexWrap: "wrap",
-    marginBottom: "4rem",
+    marginBottom: "clamp(2rem, 6vw, 4rem)",
   };
 
   const textStyle = {
@@ -66,10 +66,10 @@ export default function BiologyResearch() {
     position: "fixed",
     top: "100px",
     left: "0",
-    width: "240px",
+    width: "clamp(200px, 15vw, 240px)",
     maxHeight: "calc(100vh - 120px)",
     overflowY: "auto",
-    padding: "1.5rem",
+    padding: "clamp(1rem, 2vw, 1.5rem)",
     background: "#1a1a1a",
     borderRadius: "0 12px 12px 0",
     border: "none",
@@ -79,10 +79,10 @@ export default function BiologyResearch() {
 
   const outlineItemStyle = {
     display: "block",
-    padding: "0.75rem 0.5rem",
+    padding: "clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.4rem, 1.2vw, 0.5rem)",
     color: "#ddd",
     textDecoration: "none",
-    fontSize: "0.9rem",
+    fontSize: "clamp(0.8rem, 2vw, 0.9rem)",
     lineHeight: "1.4",
     cursor: "pointer",
     borderRadius: "6px",
@@ -94,7 +94,7 @@ export default function BiologyResearch() {
     background: "#222",
     color: "#fff",
     minHeight: "100vh",
-    padding: "2rem 50px 2rem 100px",
+    padding: "clamp(1rem, 4vw, 2rem) clamp(0.5rem, 3vw, 50px) clamp(1rem, 4vw, 2rem) clamp(1rem, 8vw, 100px)",
     width: "100%",
     boxSizing: "border-box",
     overflowX: "hidden",
@@ -114,7 +114,7 @@ export default function BiologyResearch() {
         body {
           overflow-x: hidden;
         }
-        @media (max-width: 1200px) {
+        @media (max-width: 1024px) {
           .project-outline-sidebar {
             position: relative !important;
             left: 0 !important;
@@ -123,9 +123,37 @@ export default function BiologyResearch() {
             max-height: none !important;
             border-radius: 12px !important;
             border-right: none !important;
+            top: 0 !important;
           }
           .project-outline-container {
-            padding-left: 2rem !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            padding-top: 1rem !important;
+          }
+          .section-responsive {
+            flex-direction: column !important;
+          }
+          .pdf-container-responsive {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 1 1 100% !important;
+          }
+          .text-responsive {
+            text-align: left !important;
+            align-items: flex-start !important;
+            width: 100% !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .project-outline-container {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+          }
+          h1 {
+            font-size: clamp(1.5rem, 6vw, 2rem) !important;
+          }
+          h2 {
+            font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
           }
         }
       `}</style>
@@ -182,7 +210,8 @@ export default function BiologyResearch() {
           title="2025 iGEM Yale Team Wiki"
           style={{
             width: "100%",
-            height: "800px",
+            height: "clamp(400px, 50vw, 800px)",
+            minHeight: "400px",
             border: "none",
             borderRadius: "12px",
             background: "#111",
@@ -210,8 +239,8 @@ export default function BiologyResearch() {
       </div>
 
       {/* --- Paper 1 (PDF left, text right) --- */}
-      <div id="identification-of-non-standard-amino-acid-incorporation-sites-for-half-life-extension-of-chemotherapeutic-l-asparaginase" style={sectionStyle}>
-        <div style={pdfContainer}>
+      <div id="identification-of-non-standard-amino-acid-incorporation-sites-for-half-life-extension-of-chemotherapeutic-l-asparaginase" style={sectionStyle} className="section-responsive">
+        <div style={pdfContainer} className="pdf-container-responsive">
           <object data={paper1} type="application/pdf" style={frameStyle}>
             <p>
               Unable to display PDF.{" "}
@@ -223,7 +252,7 @@ export default function BiologyResearch() {
           </object>
         </div>
 
-        <div style={{ ...textStyle, textAlign: "right", alignItems: "flex-end" }}>
+        <div style={{ ...textStyle, textAlign: "right", alignItems: "flex-end" }} className="text-responsive">
           <h2>
             Identification of Non-standard Amino Acid Incorporation Sites for
             Half-life Extension of Chemotherapeutic L-asparaginase
@@ -239,8 +268,8 @@ export default function BiologyResearch() {
       </div>
 
       {/* --- Paper 2 (PDF right, text left) --- */}
-      <div id="isolation-and-identification-of-plastic-degrading-and-oil-degrading-bacteria-in-a-soil-sample" style={{ ...sectionStyle, flexDirection: "row-reverse" }}>
-        <div style={pdfContainer}>
+      <div id="isolation-and-identification-of-plastic-degrading-and-oil-degrading-bacteria-in-a-soil-sample" style={{ ...sectionStyle, flexDirection: "row-reverse" }} className="section-responsive">
+        <div style={pdfContainer} className="pdf-container-responsive">
           <object data={paper2} type="application/pdf" style={frameStyle}>
             <p>
               Unable to display PDF.{" "}
@@ -252,7 +281,7 @@ export default function BiologyResearch() {
           </object>
         </div>
 
-        <div style={{ ...textStyle, textAlign: "left", alignItems: "flex-start" }}>
+        <div style={{ ...textStyle, textAlign: "left", alignItems: "flex-start" }} className="text-responsive">
           <h2>
             Isolation and Identification of Plastic-Degrading and Oil-Degrading
             Bacteria in a Soil Sample
@@ -267,8 +296,8 @@ export default function BiologyResearch() {
       </div>
 
       {/* --- Paper 3 (PDF left, text right) --- */}
-      <div id="lpa-paper" style={sectionStyle}>
-        <div style={pdfContainer}>
+      <div id="lpa-paper" style={sectionStyle} className="section-responsive">
+        <div style={pdfContainer} className="pdf-container-responsive">
           <object data={paper3} type="application/pdf" style={frameStyle}>
             <p>
               Unable to display PDF.{" "}
@@ -280,7 +309,7 @@ export default function BiologyResearch() {
           </object>
         </div>
 
-        <div style={{ ...textStyle, textAlign: "right", alignItems: "flex-end" }}>
+        <div style={{ ...textStyle, textAlign: "right", alignItems: "flex-end" }} className="text-responsive">
           <h2>LPA Paper</h2>
           <p>
             This paper explores the role of LPA in regulating cell migration and neurodevelopment.
