@@ -59,6 +59,33 @@ Include details about what happened, who was involved, and what made this event 
 
 This is where you can tell the full story of your event with as much detail as you'd like.`,
   },
+  
+"event-10": {
+    title: "2025 FALL YHHAP FAST",
+    date: "November 2025",
+    club: "YHHAP FAST Designer",
+    coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
+    images: [],
+    content: `Add your full event description here. You can write multiple paragraphs about the event.
+
+Include details about what happened, who was involved, and what made this event special.
+
+This is where you can tell the full story of your event with as much detail as you'd like.`,
+  },
+
+"event-11": {
+    title: "ECAASU Conference 2025",
+    date: "November 2024",
+    club: "AASA Digital Team",
+    coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
+    images: [],
+    content: `Add your full event description here. You can write multiple paragraphs about the event.
+
+Include details about what happened, who was involved, and what made this event special.
+
+This is where you can tell the full story of your event with as much detail as you'd like.`,
+  },
+
   "event-4": {
     title: "Mid-Autumn Festival Celebration",
     date: "Janurary 2025",
@@ -124,6 +151,18 @@ This is where you can tell the full story of your event with as much detail as y
     date: "Month Year",
     club: "Organization Name",
     coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
+    images: [],
+    content: `Add your full event description here. You can write multiple paragraphs about the event.
+
+Include details about what happened, who was involved, and what made this event special.
+
+This is where you can tell the full story of your event with as much detail as you'd like.`,
+  },
+  "event-12": {
+    title: "Love Served Fresh",
+    date: "Month Year",
+    club: "Organization Name",
+    coverImage: `${import.meta.env.BASE_URL}cultshow1.png`,
     images: [],
     content: `Add your full event description here. You can write multiple paragraphs about the event.
 

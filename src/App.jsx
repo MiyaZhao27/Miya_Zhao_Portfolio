@@ -43,7 +43,7 @@ export default function App() {
             My diverse experience in research development, the visual arts, education, and event planning has been instrumental in shaping my skill set and passion for <strong>end-to-end execution</strong>. The core principles that guide me and the roles I take on include <strong>creativity, a people-first mindset, and sustainability</strong>. This commitment to turning vision into reality <strong>with intentionality</strong> is what drives my interest in Product Management, particularly within Biotech or App Development.
           </p>
           <p className="ep-sub">
-            This portfolio is a documentation of the work I'm most proud of, showcasing how abstract concepts are translated into <strong>tangible products and initiatives made to thrive</strong>.
+            This portfolio is a documentation of the work I'm most proud of, showcasing how abstract concepts are translated into <strong>tangible products and initiatives designed to thrive</strong>.
           </p>
         </div>
       </div>

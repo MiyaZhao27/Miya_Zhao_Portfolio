@@ -9,68 +9,92 @@ export default function EventPlanning() {
       title: "2024\nAnnual Cultural Show",
       date: "April 2024",
       club: "CASA Cultural Chair",
-      coverImage: `${import.meta.env.BASE_URL}cultshow1.png`,
+      coverImage: `${import.meta.env.BASE_URL}cultshow2.png`,
       preview: "Add your event description here. This is a preview that will show on the gallery card.",
     },
     {
       id: "sok-song-origami",
-      title: "Sok Song Origami",
+      title: "Sok Song Origami Workshop",
       date: "February 2024",
       club: "AACC HACR Team",
-      coverImage: `${import.meta.env.BASE_URL}cultshow2.png`,
+      coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
       preview: "Add your event description here. This is a preview that will show on the gallery card.", 
     },
     {
       id: "event-3",
-      title: "Event Title 3",
-      date: "Month Year",
-      club: "Organization Name",
+      title: "YuanXiao Jie Celebration",
+      date: "Janurary 2025",
+      club: "CASA Cultural Chair",
+      coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
+      preview: "Add your event description here. This is a preview that will show on the gallery card.",
+    },
+    {
+      id: "event-10",
+      title: "2025 FALL YHHAP FAST",
+      date: "November 2025",
+      club: "YHHAP FAST Designer",
+      coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
+      preview: "Add your event description here. This is a preview that will show on the gallery card.",
+    },
+    {
+      id: "event-11",
+      title: "ECAASU Conference 2025",
+      date: "November 2024",
+      club: "AASA Digital Team",
       coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
       preview: "Add your event description here. This is a preview that will show on the gallery card.",
     },
     {
       id: "event-4",
-      title: "Event Title 4",
-      date: "Month Year",
-      club: "Organization Name",
-      coverImage: `${import.meta.env.BASE_URL}cultshow1.png`,
+      title: "Mid-Autumn Festival Celebration",
+      date: "Janurary 2025",
+      club: "CASA Cultural Chair",
+      coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
       preview: "Add your event description here. This is a preview that will show on the gallery card.",
     },
     {
       id: "event-5",
-      title: "Event Title 5",
-      date: "Month Year",
-      club: "Organization Name",
-      coverImage: `${import.meta.env.BASE_URL}cultshow2.png`,
+      title: "Hot Pot Night",
+      date: "Janurary 2025",
+      club: "CASA Cultural Chair",
+      coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
       preview: "Add your event description here. This is a preview that will show on the gallery card.",
     },
     {
       id: "event-6",
-      title: "Event Title 6",
+      title: "Singles Night",
+      date: "Janurary 2025",
+      club: "CASA Cultural Chair",
+      coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
+      preview: "Add your event description here. This is a preview that will show on the gallery card.",
+    },
+    {
+      id: "event-7",
+      title: "asiarchitecture!",
+      date: "Month Year",
+      club: "AACC HACR Team",
+      coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
+      preview: "Add your event description here. This is a preview that will show on the gallery card.",
+    },
+    {
+      id: "event-8",
+      title: "Lunar Ball",
+      date: "Month Year",
+      club: "CASA Co-President",
+      coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
+      preview: "Add your event description here. This is a preview that will show on the gallery card.",
+    },
+    {
+      id: "event-9",
+      title: "Event Title 9",
       date: "Month Year",
       club: "Organization Name",
       coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
       preview: "Add your event description here. This is a preview that will show on the gallery card.",
     },
     {
-      id: "event-7",
-      title: "Event Title 7",
-      date: "Month Year",
-      club: "Organization Name",
-      coverImage: `${import.meta.env.BASE_URL}cultshow1.png`,
-      preview: "Add your event description here. This is a preview that will show on the gallery card.",
-    },
-    {
-      id: "event-8",
-      title: "Event Title 8",
-      date: "Month Year",
-      club: "Organization Name",
-      coverImage: `${import.meta.env.BASE_URL}cultshow2.png`,
-      preview: "Add your event description here. This is a preview that will show on the gallery card.",
-    },
-    {
-      id: "event-9",
-      title: "Event Title 9",
+      id: "event-12",
+      title: "Love Served Fresh",
       date: "Month Year",
       club: "Organization Name",
       coverImage: `${import.meta.env.BASE_URL}cultshow3.png`,
@@ -174,10 +198,10 @@ export default function EventPlanning() {
     <div style={containerStyle} className="project-outline-container">
       <DogOutlineGuide sections={outlineSections} />
       <div style={contentStyle} className="project-content">
-      <h1 className="ep-header"><span className="typewriter-title">Welcome to My Events Blog!</span></h1>
+      <h1 className="ep-header"><span className="typewriter-title">Welcome to My Club Blog!</span></h1>
       <p className="ep-sub" style={{ marginBottom: "3rem", textAlign: "center" }}>
         I wanted to give some big highlights to the clubs and organizations that shaped my college experience.
-        Between working at the Asian American Cultural Center and helping run the Chinese American Student Association, event planning became a huge part of my college experience. Here I want to showcase and celebrate culture and community on campus.
+        Between working at the Asian American Cultural Center, helping run the Chinese American Student Association, and other explorations here and there, event planning became a huge part of my college experience. Here I want to showcase and celebrate culture and community on campus.
       </p>
 
       {/* Gallery Grid */}

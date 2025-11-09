@@ -7,7 +7,6 @@ export default function Art() {
     "mzgallery2.png",
     "mzgallery3.png",
     "mzgallery4.png",
-    "mzgallery5.png",
     "mzgallery6.png",
     "mzgallery7.png",
     "mzgallery8.JPG",
